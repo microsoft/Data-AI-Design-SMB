@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+[[ ${DEBUG-} =~ ^1|yes|true$ ]] && set -o xtrace
+
+sudo apt update
+sudo apt install -y libgl1-mesa-glx poppler-utils tesseract-ocr
+pip install --upgrade pip
+
+pip install -r requirements.txt
+pip cache purge

@@ -1,0 +1,6 @@
+inventory:
+- source: DirectOwners
+  items:
+  - id: dobroegl@microsoft.com
+  - id: frsodano@microsoft.com
+  isProduction: false

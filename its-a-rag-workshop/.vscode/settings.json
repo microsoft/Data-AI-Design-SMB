@@ -1,0 +1,11 @@
+{
+    "cSpell.words": [
+        "dotenv",
+        "fastapi",
+        "mockstock",
+        "sqlalchemy",
+        "sqlmodel",
+        "starlette",
+        "streamlit"
+    ]
+}
