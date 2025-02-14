@@ -5,5 +5,7 @@ set -euo pipefail
 # Update APT packages and install MESA GLX support
 sudo apt update
 sudo apt install -y libgl1-mesa-glx poppler-utils tesseract-ocr
+chmod 755 ./itsarag-ez/scripts/
+chmod 755 ./itsarag/scripts/
 pip install --upgrade pip
 pip install -r requirements.txt

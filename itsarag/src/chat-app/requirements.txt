@@ -10,3 +10,5 @@ pymssql~=2.3.2
 unstructured ~= 0.16.16
 azure-ai-documentintelligence ~= 1.0.0
 pymupdf ~= 1.25.2
+pytest
+pytest-asyncio
