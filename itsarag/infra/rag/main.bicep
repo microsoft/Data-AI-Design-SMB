@@ -8,7 +8,7 @@ param blobIndexerImage string = ''
 param chatAppImage string = ''
 param chatAppResourceExists bool = false
 param environmentName string
-param location string = 'switzerlandnorth'
+param location string = ''
 param mockStockAppImage string = '' 
 param mockStockAppResourceExists bool = false
 param projectName string = 'itsarag'
