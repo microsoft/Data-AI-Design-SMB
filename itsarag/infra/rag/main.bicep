@@ -8,7 +8,13 @@ param blobIndexerImage string = ''
 param chatAppImage string = ''
 param chatAppResourceExists bool = false
 param environmentName string
-param location string = ''
+@description('Primary location for all resources')
+@metadata({
+  azd: {
+    type: 'location'
+  }
+})
+param location string
 param mockStockAppImage string = '' 
 param mockStockAppResourceExists bool = false
 param projectName string = 'itsarag'
