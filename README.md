@@ -3,11 +3,22 @@
 > This repository is used to help, test and provide workshops and scripts for customers within SMB.  
 
 Links for Labs: 
+
 AI AGENTS and AI Fundamentals
+
+
 https://learn.microsoft.com/en-us/credentials/certifications/azure-ai-fundamentals/?practice-assessment-type=certification
+
+
 https://github.com/Azure-Samples/get-started-with-ai-agents
+
+
 https://github.com/microsoft/build-your-first-agent-with-azure-ai-agent-service-workshop?tab=readme-ov-file
+
+
 https://github.com/gxjorge/AI-Agents-Lab
+
+
 
 Fabric Real-time intelligence
 https://moaw.dev/workshop/?src=gh%3Amicrosoft%2Ffabconrtitutorial%2Fmain%2Fdocs%2F&step=0#
