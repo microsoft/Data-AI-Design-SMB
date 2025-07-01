@@ -1,0 +1,79 @@
+import spacy
+from collections import OrderedDict
+import requests
+
+# Load spaCy model
+nlp = spacy.load("en_core_web_sm")
+
+# Count tokens
+def count_tokens(text):
+    return len(nlp(text))
+
+# Remove stopwords
+def remove_stopwords(text):
+    doc = nlp(text)
+    return " ".join([token.text for token in doc if not token.is_stop])
+
+# Deduplicate terms
+def deduplicate_keywords(text):
+    return " ".join(OrderedDict.fromkeys(text.split()))
+
+# Limit context window
+def limit_context_window(text, max_tokens):
+    return " ".join(text.split()[:max_tokens])
+
+# Filter keywords
+def keyword_filtering(text, allowed_terms):
+    return " ".join([word for word in text.split() if word in allowed_terms])
+
+# Full pipeline with logging
+def preprocess_query(query, max_tokens, allowed_terms):
+    print(f"Original Query: {query}")
+    print(f"Original Token Count: {count_tokens(query)}")
+
+    query = remove_stopwords(query)
+    print(f"After Removing Stopwords: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    query = deduplicate_keywords(query)
+    print(f"After Deduplication: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    query = limit_context_window(query, max_tokens)
+    print(f"After Limiting Context: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    query = keyword_filtering(query, allowed_terms)
+    print(f"After Keyword Filtering: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    return query
+
+# Send query to Azure AI Search
+def send_to_azure_search(cleaned_query, search_endpoint, api_key):
+    headers = {
+        'Content-Type': 'application/json',
+        'api-key': api_key
+    }
+    payload = {
+        'search': cleaned_query,
+        'queryType': 'full',
+        'searchMode': 'all',
+        'top': 10,
+        'count': True
+    }
+    response = requests.post(search_endpoint, headers=headers, json=payload)
+    return response.json()
+
+# Example usage
+if __name__ == "__main__":
+    query = "This is an example search query with some repeated repeated words and stopwords."
+    allowed_terms = ["example", "search", "query", "repeated", "words"]
+    cleaned_query = preprocess_query(query, max_tokens=50, allowed_terms=allowed_terms)
+
+    # Replace with your actual Azure Search endpoint and API key
+    search_endpoint = "https://<your-search-service>.search.windows.net/indexes/<your-index>/docs/search?api-version=2021-04-30-Preview"
+    api_key = "<your-api-key>"
+
+    results = send_to_azure_search(cleaned_query, search_endpoint, api_key)
+    print("Search Results:", results)

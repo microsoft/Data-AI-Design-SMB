@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Model Chat</title>
+    <style>
+        
+        body {
+            font-family: sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4; 
+        }
+        .chat-container { 
+             max-width: 800px;
+             margin: 0 auto;
+             background-color: #fff;
+             border: 1px solid #ccc;
+             padding: 15px;
+             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .chatbox {
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 450px; 
+            overflow-y: scroll;
+            margin-bottom: 15px;
+            background-color: #fff;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px; 
+            border-radius: 7px; 
+            line-height: 1.4;
+             max-width: 85%; 
+             word-wrap: break-word;
+        }
+        .user {
+            background-color: #e1f5fe; 
+            text-align: left; 
+            margin-left: auto; 
+           
+        }
+        .assistant {
+            background-color: #f1f8e9; 
+            text-align: left;
+             margin-right: auto; 
+        }
+        .tool {
+            background-color: #fff9c4; 
+            font-style: italic;
+            color: #555; 
+            text-align: center;
+            margin: 5px auto; 
+            font-size: 0.9em;
+             max-width: 95%;
+             border: 1px dashed #ddd;
+        }
+        
+        .assistant.error-message { 
+             background-color: #ffebee; 
+             color: #c62828;
+             font-weight: bold;
+        }
+
+        .input-area {
+            display: flex; 
+            gap: 10px;
+            margin-top: 10px;
+        }
+        textarea {
+            flex-grow: 1; 
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical; 
+            min-height: 40px;
+             font-family: inherit;
+             font-size: 1em;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #5c9ded; 
+            color: white;
+            cursor: pointer;
+            font-size: 1em;
+            height: 40px; 
+            align-self: flex-end; 
+        }
+        button:hover {
+            background-color: #4a8ad8;
+        }
+        button[name="clear"] {
+             background-color: #aaa;
+        }
+         button[name="clear"]:hover {
+             background-color: #888;
+         }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Chat with Data</h1>
+
+        <div class="chatbox" id="chatbox">
+            {% for msg in chat_history %}
+                {% if msg.role == 'user' %}
+                    <div class="message user"><b>You:</b><br>{{ msg.content }}</div>
+                {% elif msg.role == 'assistant' %}
+                     {# Check if content indicates an error for basic styling #}
+                     {% set is_error = msg.content and 'error' in msg.content.lower() %}
+                    <div class="message assistant {% if is_error %}error-message{% endif %}"> 
+                         <b>Agent:</b><br>
+                         {# Render content as plain text - remove |safe if not needed #}
+                         {{ msg.content | safe if msg.content else '' }}
+                     </div> 
+                {% endif %}
+            {% endfor %}
+        </div> <form method="post" class="input-area">
+            <textarea name="message" rows="2" placeholder="Enter your message..."></textarea>
+            <button type="submit">Send</button>
+            <button type="submit" name="clear" value="true">Clear</button>
+        </form>
+    </div> <script>
+        var chatbox = document.getElementById('chatbox');
+        if (chatbox) {
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+    </script>
+</body>
+</html>

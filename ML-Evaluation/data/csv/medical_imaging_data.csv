@@ -1,0 +1,501 @@
+image_id,patient_id,age,gender,modality,body_part,scan_date,abnormal,finding,urgency
+IMG0000000,P0004827,30,Male,CT,Chest,2024-03-12,0,No significant findings,None
+IMG0000001,P0006987,66,Male,X-ray,Chest,2024-11-24,1,Pulmonary nodule,Low
+IMG0000002,P0003503,37,Male,CT,Head,2025-04-02,0,No significant findings,None
+IMG0000003,P0007824,63,Male,CT,Pelvis,2025-03-03,0,No significant findings,None
+IMG0000004,P0002075,61,Male,CT,Head,2024-06-02,1,Infarct,High
+IMG0000005,P0001312,55,Male,MRI,Brain,2025-02-01,0,No significant findings,None
+IMG0000006,P0002284,69,Male,CT,Chest,2024-03-13,0,No significant findings,None
+IMG0000007,P0008575,65,Male,X-ray,Chest,2024-05-19,1,Pulmonary nodule,Low
+IMG0000008,P0002808,65,Male,MRI,Brain,2025-04-04,0,No significant findings,None
+IMG0000009,P0008995,72,Male,CT,Chest,2024-07-10,1,Fluid collection,Low
+IMG0000010,P0009288,53,Female,CT,Head,2024-04-07,1,Infarct,High
+IMG0000011,P0006521,53,Male,CT,Chest,2025-02-10,0,No significant findings,None
+IMG0000012,P0006355,76,Female,CT,Chest,2024-11-05,1,Inflammation,High
+IMG0000013,P0003719,69,Male,CT,Head,2024-04-14,1,Subdural hematoma,High
+IMG0000014,P0004771,52,Male,CT,Chest,2024-12-17,0,No significant findings,None
+IMG0000015,P0002696,29,Male,MRI,Knee,2025-01-07,0,No significant findings,None
+IMG0000016,P0005796,65,Male,X-ray,Chest,2024-05-20,1,Pneumonia,High
+IMG0000017,P0000808,67,Male,CT,Chest,2024-08-08,1,Fluid collection,High
+IMG0000018,P0003293,41,Female,CT,Abdomen,2024-06-29,0,No significant findings,None
+IMG0000019,P0009497,47,Female,X-ray,Chest,2025-01-10,0,No significant findings,None
+IMG0000020,P0003459,53,Male,MRI,Spine,2024-10-13,0,No significant findings,None
+IMG0000021,P0002419,66,Male,X-ray,Chest,2024-08-24,0,No significant findings,None
+IMG0000022,P0004224,97,Male,X-ray,Chest,2024-04-12,0,No significant findings,None
+IMG0000023,P0007571,76,Female,CT,Abdomen,2025-02-01,1,Fluid collection,Medium
+IMG0000024,P0006363,37,Female,X-ray,Chest,2024-12-08,0,No significant findings,None
+IMG0000025,P0009388,53,Male,MRI,Brain,2024-11-01,1,Microhemorrhages,Low
+IMG0000026,P0004567,58,Male,CT,Abdomen,2024-04-17,0,No significant findings,None
+IMG0000027,P0003524,67,Male,X-ray,Chest,2024-07-15,0,No significant findings,None
+IMG0000028,P0006751,47,Female,Ultrasound,Pelvis,2024-10-08,1,Fluid collection,High
+IMG0000029,P0009717,68,Male,X-ray,Extremity,2024-04-17,0,No significant findings,None
+IMG0000030,P0006237,52,Male,CT,Chest,2025-04-05,1,Degenerative changes,Low
+IMG0000031,P0009791,68,Male,MRI,Brain,2024-12-09,1,Atrophy,Low
+IMG0000032,P0009236,61,Female,CT,Chest,2024-08-22,1,Fluid collection,Medium
+IMG0000033,P0005319,90,Male,Ultrasound,Abdomen,2024-06-15,0,No significant findings,None
+IMG0000034,P0001867,74,Male,MRI,Brain,2024-09-02,1,Tumor,High
+IMG0000035,P0001375,79,Male,Ultrasound,Vascular,2024-10-09,0,No significant findings,None
+IMG0000036,P0008130,44,Female,X-ray,Chest,2024-07-05,0,No significant findings,None
+IMG0000037,P0005401,52,Female,CT,Head,2024-07-26,1,Subdural hematoma,Low
+IMG0000038,P0008803,64,Male,MRI,Brain,2024-06-09,1,Stroke,Critical
+IMG0000039,P0006992,41,Female,Ultrasound,Breast,2025-02-25,0,No significant findings,None
+IMG0000040,P0003316,75,Male,Ultrasound,Abdomen,2024-04-16,1,Fracture,Medium
+IMG0000041,P0001598,61,Female,MRI,Brain,2025-03-22,0,No significant findings,None
+IMG0000042,P0004949,76,Male,MRI,Spine,2024-09-23,0,No significant findings,None
+IMG0000043,P0006572,67,Male,X-ray,Chest,2024-10-14,0,No significant findings,None
+IMG0000044,P0000638,60,Male,X-ray,Chest,2025-01-23,1,Atelectasis,Low
+IMG0000045,P0004166,58,Female,X-ray,Extremity,2024-10-10,1,Fracture,Low
+IMG0000046,P0000645,48,Female,X-ray,Chest,2024-11-10,0,No significant findings,None
+IMG0000047,P0005884,47,Female,X-ray,Chest,2025-01-17,1,Pleural effusion,Low
+IMG0000048,P0006668,73,Male,X-ray,Chest,2025-03-30,0,No significant findings,None
+IMG0000049,P0000089,70,Female,X-ray,Chest,2024-07-03,0,No significant findings,None
+IMG0000050,P0009015,78,Male,Ultrasound,Abdomen,2024-09-09,1,Fracture,Medium
+IMG0000051,P0000550,51,Female,X-ray,Abdomen,2024-11-20,0,No significant findings,None
+IMG0000052,P0008251,76,Male,X-ray,Extremity,2024-07-23,0,No significant findings,None
+IMG0000053,P0005224,57,Male,MRI,Brain,2024-03-23,1,Tumor,Medium
+IMG0000054,P0005581,68,Male,MRI,Shoulder,2024-03-16,0,No significant findings,None
+IMG0000055,P0004178,79,Male,X-ray,Chest,2024-08-24,0,No significant findings,None
+IMG0000056,P0009435,91,Female,X-ray,Chest,2024-05-08,0,No significant findings,None
+IMG0000057,P0003479,76,Male,X-ray,Abdomen,2025-04-04,0,No significant findings,None
+IMG0000058,P0009137,63,Female,X-ray,Chest,2025-01-16,0,No significant findings,None
+IMG0000059,P0009832,68,Male,X-ray,Abdomen,2025-04-03,0,No significant findings,None
+IMG0000060,P0006091,78,Male,CT,Chest,2024-11-08,0,No significant findings,None
+IMG0000061,P0002633,70,Male,MRI,Shoulder,2024-08-29,1,Mass,High
+IMG0000062,P0006790,54,Female,CT,Abdomen,2024-10-10,0,No significant findings,None
+IMG0000063,P0003501,69,Male,CT,Chest,2024-07-20,0,No significant findings,None
+IMG0000064,P0000889,79,Male,X-ray,Extremity,2024-07-17,0,No significant findings,None
+IMG0000065,P0008765,87,Male,CT,Pelvis,2024-10-24,0,No significant findings,None
+IMG0000066,P0008704,60,Male,CT,Chest,2025-01-21,1,Degenerative changes,Low
+IMG0000067,P0007246,43,Female,CT,Abdomen,2025-02-26,0,No significant findings,None
+IMG0000068,P0004160,33,Male,Ultrasound,Vascular,2025-02-06,0,No significant findings,None
+IMG0000069,P0004051,71,Male,X-ray,Abdomen,2024-03-24,0,No significant findings,None
+IMG0000070,P0002230,36,Male,Ultrasound,Abdomen,2024-07-05,0,No significant findings,None
+IMG0000071,P0005185,64,Female,Ultrasound,Pelvis,2024-05-31,0,No significant findings,None
+IMG0000072,P0007375,76,Female,X-ray,Extremity,2024-04-22,0,No significant findings,None
+IMG0000073,P0006197,57,Male,X-ray,Chest,2024-03-10,0,No significant findings,None
+IMG0000074,P0002283,37,Female,X-ray,Abdomen,2024-03-07,1,Fracture,Low
+IMG0000075,P0004984,41,Male,CT,Chest,2025-03-09,0,No significant findings,None
+IMG0000076,P0000611,46,Female,X-ray,Chest,2025-04-05,1,Pulmonary nodule,Medium
+IMG0000077,P0008629,58,Male,X-ray,Chest,2024-12-21,0,No significant findings,None
+IMG0000078,P0009651,78,Male,Ultrasound,Vascular,2024-03-31,0,No significant findings,None
+IMG0000079,P0006837,60,Female,X-ray,Chest,2025-01-06,1,Cardiomegaly,Low
+IMG0000080,P0007106,92,Male,X-ray,Chest,2024-12-31,0,No significant findings,None
+IMG0000081,P0007275,75,Male,MRI,Spine,2024-09-29,0,No significant findings,None
+IMG0000082,P0008715,64,Female,MRI,Spine,2024-05-11,0,No significant findings,None
+IMG0000083,P0003577,58,Male,X-ray,Chest,2024-09-09,1,Pneumonia,Critical
+IMG0000084,P0006486,52,Male,X-ray,Chest,2025-01-16,1,Atelectasis,Low
+IMG0000085,P0002261,62,Male,MRI,Spine,2024-09-14,0,No significant findings,None
+IMG0000086,P0001023,68,Female,MRI,Brain,2024-12-15,0,No significant findings,None
+IMG0000087,P0009771,64,Female,Ultrasound,Pelvis,2024-07-31,0,No significant findings,None
+IMG0000088,P0008513,52,Male,X-ray,Chest,2025-02-07,0,No significant findings,None
+IMG0000089,P0007235,44,Female,MRI,Brain,2024-04-18,0,No significant findings,None
+IMG0000090,P0003757,87,Male,CT,Abdomen,2024-03-15,0,No significant findings,None
+IMG0000091,P0008068,69,Female,Ultrasound,Pelvis,2024-07-30,1,Degenerative changes,Low
+IMG0000092,P0008641,65,Female,CT,Head,2025-01-20,1,Subdural hematoma,Medium
+IMG0000093,P0001284,67,Female,CT,Chest,2024-09-25,1,Fluid collection,Medium
+IMG0000094,P0001660,76,Male,X-ray,Chest,2024-07-21,0,No significant findings,None
+IMG0000095,P0005353,52,Female,X-ray,Chest,2024-05-22,0,No significant findings,None
+IMG0000096,P0000903,58,Male,CT,Head,2024-03-06,1,Hydrocephalus,Medium
+IMG0000097,P0009369,48,Male,X-ray,Chest,2024-05-12,0,No significant findings,None
+IMG0000098,P0008521,59,Female,CT,Chest,2024-06-17,1,Mass,Medium
+IMG0000099,P0008828,49,Male,X-ray,Chest,2024-08-16,1,Pulmonary nodule,Low
+IMG0000100,P0006010,44,Female,MRI,Knee,2024-10-22,1,Mass,Low
+IMG0000101,P0000412,35,Male,X-ray,Chest,2025-04-02,1,Pleural effusion,High
+IMG0000102,P0006639,84,Male,MRI,Knee,2025-03-18,1,Degenerative changes,Medium
+IMG0000103,P0003833,54,Male,MRI,Spine,2025-01-27,0,No significant findings,None
+IMG0000104,P0002415,67,Female,X-ray,Chest,2024-12-24,0,No significant findings,None
+IMG0000105,P0002586,61,Male,X-ray,Abdomen,2024-11-21,1,Fluid collection,Low
+IMG0000106,P0005571,67,Female,MRI,Spine,2024-03-19,0,No significant findings,None
+IMG0000107,P0009756,29,Male,X-ray,Chest,2025-03-10,0,No significant findings,None
+IMG0000108,P0008672,52,Male,X-ray,Chest,2024-05-20,1,Atelectasis,Low
+IMG0000109,P0006557,77,Male,X-ray,Abdomen,2025-01-10,0,No significant findings,None
+IMG0000110,P0006280,89,Male,CT,Chest,2024-11-07,0,No significant findings,None
+IMG0000111,P0002882,54,Female,X-ray,Chest,2025-01-26,0,No significant findings,None
+IMG0000112,P0002519,56,Male,Ultrasound,Abdomen,2024-05-16,0,No significant findings,None
+IMG0000113,P0004400,75,Male,MRI,Spine,2024-03-16,0,No significant findings,None
+IMG0000114,P0008846,66,Male,MRI,Brain,2024-08-14,0,No significant findings,None
+IMG0000115,P0000180,60,Male,X-ray,Extremity,2024-05-22,0,No significant findings,None
+IMG0000116,P0004125,59,Female,Ultrasound,Pelvis,2024-05-03,0,No significant findings,None
+IMG0000117,P0003019,51,Male,CT,Head,2024-08-01,0,No significant findings,None
+IMG0000118,P0000764,50,Female,MRI,Brain,2024-06-08,0,No significant findings,None
+IMG0000119,P0004135,61,Male,CT,Head,2025-04-01,1,Infarct,High
+IMG0000120,P0005038,64,Female,X-ray,Chest,2024-09-14,1,Pulmonary nodule,Medium
+IMG0000121,P0006799,65,Female,MRI,Knee,2024-07-25,0,No significant findings,None
+IMG0000122,P0003390,49,Male,CT,Abdomen,2024-06-29,0,No significant findings,None
+IMG0000123,P0009974,79,Female,Ultrasound,Breast,2024-11-21,1,Inflammation,Low
+IMG0000124,P0001064,35,Male,X-ray,Abdomen,2025-02-22,0,No significant findings,None
+IMG0000125,P0002456,67,Male,Ultrasound,Pelvis,2024-12-04,0,No significant findings,None
+IMG0000126,P0005681,51,Female,X-ray,Extremity,2025-03-19,1,Fracture,Low
+IMG0000127,P0001346,47,Male,X-ray,Extremity,2024-10-21,1,Inflammation,Medium
+IMG0000128,P0006997,55,Male,CT,Abdomen,2025-03-08,1,Fluid collection,Medium
+IMG0000129,P0009374,36,Female,CT,Abdomen,2024-11-10,0,No significant findings,None
+IMG0000130,P0004132,65,Male,MRI,Spine,2024-09-15,1,Fluid collection,Medium
+IMG0000131,P0002453,84,Male,CT,Head,2024-05-11,0,No significant findings,None
+IMG0000132,P0000538,50,Female,X-ray,Chest,2025-03-19,0,No significant findings,None
+IMG0000133,P0002303,95,Female,CT,Abdomen,2024-06-23,1,Degenerative changes,Low
+IMG0000134,P0006421,47,Male,X-ray,Chest,2024-11-22,0,No significant findings,None
+IMG0000135,P0000248,53,Male,CT,Abdomen,2025-02-03,0,No significant findings,None
+IMG0000136,P0009232,80,Female,X-ray,Abdomen,2025-02-03,0,No significant findings,None
+IMG0000137,P0001391,42,Male,X-ray,Chest,2025-01-11,1,Pneumonia,High
+IMG0000138,P0002172,56,Female,Ultrasound,Abdomen,2024-05-21,1,Fracture,Medium
+IMG0000139,P0001335,85,Male,X-ray,Chest,2025-02-25,1,Pneumonia,High
+IMG0000140,P0002259,42,Female,CT,Head,2024-04-03,1,Hydrocephalus,Medium
+IMG0000141,P0006615,68,Male,X-ray,Chest,2024-11-19,0,No significant findings,None
+IMG0000142,P0005534,67,Male,X-ray,Chest,2024-03-31,0,No significant findings,None
+IMG0000143,P0008691,31,Female,CT,Head,2025-04-05,1,Hydrocephalus,Low
+IMG0000144,P0000810,50,Male,CT,Head,2024-07-04,0,No significant findings,None
+IMG0000145,P0004984,95,Female,CT,Chest,2024-05-18,0,No significant findings,None
+IMG0000146,P0007348,63,Female,MRI,Knee,2025-02-27,0,No significant findings,None
+IMG0000147,P0007556,65,Female,MRI,Brain,2024-03-29,0,No significant findings,None
+IMG0000148,P0003713,63,Male,MRI,Knee,2025-01-09,0,No significant findings,None
+IMG0000149,P0003704,90,Male,CT,Chest,2024-07-27,0,No significant findings,None
+IMG0000150,P0001210,45,Female,CT,Head,2024-06-05,0,No significant findings,None
+IMG0000151,P0003745,49,Female,CT,Chest,2024-11-15,0,No significant findings,None
+IMG0000152,P0007791,58,Female,MRI,Shoulder,2024-06-06,0,No significant findings,None
+IMG0000153,P0001491,68,Male,CT,Chest,2024-03-18,1,Fluid collection,Low
+IMG0000154,P0007301,62,Female,X-ray,Chest,2024-06-02,0,No significant findings,None
+IMG0000155,P0006460,62,Female,X-ray,Abdomen,2024-10-07,0,No significant findings,None
+IMG0000156,P0003048,51,Male,X-ray,Abdomen,2024-12-11,0,No significant findings,None
+IMG0000157,P0004919,69,Female,X-ray,Chest,2024-12-17,0,No significant findings,None
+IMG0000158,P0002934,31,Male,X-ray,Abdomen,2024-06-22,0,No significant findings,None
+IMG0000159,P0006110,51,Female,CT,Pelvis,2024-08-03,1,Fluid collection,High
+IMG0000160,P0001817,47,Female,X-ray,Abdomen,2024-05-20,1,Fluid collection,Low
+IMG0000161,P0006613,43,Female,CT,Abdomen,2025-01-07,0,No significant findings,None
+IMG0000162,P0004319,33,Male,MRI,Spine,2025-02-09,0,No significant findings,None
+IMG0000163,P0001275,63,Male,X-ray,Chest,2024-07-14,0,No significant findings,None
+IMG0000164,P0007231,66,Male,X-ray,Chest,2024-05-26,1,Pulmonary nodule,High
+IMG0000165,P0002877,66,Female,X-ray,Chest,2025-01-05,0,No significant findings,None
+IMG0000166,P0004014,74,Female,CT,Abdomen,2024-07-29,1,Fluid collection,Low
+IMG0000167,P0004087,76,Female,CT,Pelvis,2024-10-16,1,Inflammation,Low
+IMG0000168,P0001147,29,Female,CT,Abdomen,2025-04-06,1,Mass,Low
+IMG0000169,P0000237,69,Male,X-ray,Extremity,2025-03-19,0,No significant findings,None
+IMG0000170,P0002122,62,Female,CT,Chest,2024-12-26,1,Inflammation,Medium
+IMG0000171,P0007609,62,Female,MRI,Knee,2024-05-23,0,No significant findings,None
+IMG0000172,P0004595,58,Male,X-ray,Chest,2024-07-14,1,Cardiomegaly,Low
+IMG0000173,P0009737,51,Female,MRI,Brain,2024-05-11,0,No significant findings,None
+IMG0000174,P0003983,67,Male,CT,Abdomen,2024-09-12,0,No significant findings,None
+IMG0000175,P0008134,45,Female,X-ray,Chest,2024-04-09,0,No significant findings,None
+IMG0000176,P0005606,76,Male,CT,Pelvis,2025-01-03,0,No significant findings,None
+IMG0000177,P0009178,52,Female,X-ray,Chest,2025-01-06,1,Cardiomegaly,Low
+IMG0000178,P0001623,29,Male,X-ray,Extremity,2025-02-23,1,Fluid collection,Low
+IMG0000179,P0007226,61,Male,X-ray,Chest,2025-02-06,1,Pleural effusion,Low
+IMG0000180,P0000722,42,Female,X-ray,Abdomen,2025-03-10,1,Fluid collection,Low
+IMG0000181,P0001095,42,Female,X-ray,Abdomen,2024-07-13,1,Fracture,Low
+IMG0000182,P0003827,70,Male,MRI,Knee,2025-03-30,1,Degenerative changes,Medium
+IMG0000183,P0004285,74,Male,Ultrasound,Abdomen,2025-04-03,0,No significant findings,None
+IMG0000184,P0000995,58,Female,CT,Abdomen,2024-03-30,0,No significant findings,None
+IMG0000185,P0005681,29,Male,CT,Chest,2025-03-21,1,Mass,Medium
+IMG0000186,P0004661,67,Female,Ultrasound,Vascular,2025-03-28,0,No significant findings,None
+IMG0000187,P0000992,55,Female,X-ray,Chest,2024-04-01,0,No significant findings,None
+IMG0000188,P0002783,80,Female,X-ray,Chest,2024-09-29,0,No significant findings,None
+IMG0000189,P0008347,89,Female,CT,Head,2024-12-27,1,Infarct,High
+IMG0000190,P0005682,37,Female,CT,Chest,2024-04-04,0,No significant findings,None
+IMG0000191,P0009968,97,Female,X-ray,Extremity,2024-08-02,0,No significant findings,None
+IMG0000192,P0005961,36,Male,CT,Chest,2024-08-08,1,Inflammation,Medium
+IMG0000193,P0004768,51,Female,X-ray,Abdomen,2024-05-06,0,No significant findings,None
+IMG0000194,P0005760,75,Male,CT,Chest,2024-09-26,1,Fluid collection,Medium
+IMG0000195,P0005204,49,Female,CT,Pelvis,2024-07-18,1,Mass,Low
+IMG0000196,P0007552,47,Female,MRI,Brain,2024-11-26,0,No significant findings,None
+IMG0000197,P0008246,34,Female,Ultrasound,Abdomen,2024-03-20,0,No significant findings,None
+IMG0000198,P0000084,39,Male,CT,Abdomen,2024-04-25,0,No significant findings,None
+IMG0000199,P0005976,47,Female,X-ray,Abdomen,2024-10-14,0,No significant findings,None
+IMG0000200,P0008147,71,Female,CT,Chest,2024-04-19,0,No significant findings,None
+IMG0000201,P0007084,85,Female,X-ray,Chest,2024-12-31,0,No significant findings,None
+IMG0000202,P0002779,48,Female,Ultrasound,Abdomen,2025-03-10,0,No significant findings,None
+IMG0000203,P0006055,53,Male,MRI,Spine,2024-06-22,1,Mass,Low
+IMG0000204,P0002669,45,Male,CT,Abdomen,2025-02-05,0,No significant findings,None
+IMG0000205,P0001008,37,Female,MRI,Spine,2025-03-12,1,Inflammation,High
+IMG0000206,P0002364,37,Female,CT,Chest,2024-11-14,0,No significant findings,None
+IMG0000207,P0003686,40,Male,X-ray,Chest,2024-06-25,1,Pneumonia,High
+IMG0000208,P0006768,59,Female,MRI,Brain,2025-01-30,0,No significant findings,None
+IMG0000209,P0002199,50,Male,CT,Abdomen,2024-07-31,0,No significant findings,None
+IMG0000210,P0009551,54,Male,Ultrasound,Vascular,2024-10-29,1,Fracture,Low
+IMG0000211,P0000909,65,Male,X-ray,Chest,2024-12-20,1,Pulmonary nodule,Low
+IMG0000212,P0003439,58,Male,MRI,Brain,2024-04-21,1,Tumor,Low
+IMG0000213,P0005882,42,Male,CT,Head,2024-11-28,1,Hydrocephalus,High
+IMG0000214,P0002913,74,Male,MRI,Shoulder,2024-03-07,0,No significant findings,None
+IMG0000215,P0004695,29,Male,X-ray,Chest,2024-07-12,1,Pneumonia,High
+IMG0000216,P0001006,48,Female,CT,Chest,2024-10-03,0,No significant findings,None
+IMG0000217,P0007114,85,Male,MRI,Spine,2025-03-20,1,Fracture,High
+IMG0000218,P0001143,65,Female,CT,Pelvis,2024-07-07,0,No significant findings,None
+IMG0000219,P0007552,33,Female,X-ray,Chest,2024-10-14,1,Pulmonary nodule,Medium
+IMG0000220,P0001224,36,Female,CT,Head,2024-12-31,0,No significant findings,None
+IMG0000221,P0004495,54,Male,Ultrasound,Pelvis,2024-08-05,1,Mass,Low
+IMG0000222,P0008259,52,Male,MRI,Knee,2024-05-20,0,No significant findings,None
+IMG0000223,P0009206,70,Male,CT,Chest,2025-03-22,1,Fracture,Medium
+IMG0000224,P0000181,76,Female,MRI,Brain,2024-06-24,1,Atrophy,Low
+IMG0000225,P0006332,52,Female,CT,Pelvis,2024-12-05,1,Fracture,Low
+IMG0000226,P0004946,58,Female,Ultrasound,Breast,2024-05-24,1,Fracture,Medium
+IMG0000227,P0007450,44,Female,CT,Pelvis,2024-11-07,0,No significant findings,None
+IMG0000228,P0002945,57,Male,X-ray,Chest,2025-01-30,0,No significant findings,None
+IMG0000229,P0008846,44,Female,X-ray,Chest,2024-11-14,0,No significant findings,None
+IMG0000230,P0003686,60,Male,X-ray,Chest,2025-02-23,0,No significant findings,None
+IMG0000231,P0002288,50,Female,CT,Abdomen,2024-04-08,0,No significant findings,None
+IMG0000232,P0002831,69,Male,MRI,Knee,2025-03-20,0,No significant findings,None
+IMG0000233,P0008913,75,Female,MRI,Knee,2024-06-22,0,No significant findings,None
+IMG0000234,P0003248,79,Male,Ultrasound,Breast,2024-08-05,1,Fluid collection,Medium
+IMG0000235,P0009392,60,Female,X-ray,Abdomen,2024-03-15,0,No significant findings,None
+IMG0000236,P0008501,69,Male,CT,Head,2024-04-27,0,No significant findings,None
+IMG0000237,P0001025,52,Male,CT,Head,2024-09-18,0,No significant findings,None
+IMG0000238,P0004412,47,Male,X-ray,Chest,2025-03-31,1,Cardiomegaly,Low
+IMG0000239,P0005902,39,Female,CT,Chest,2024-10-11,0,No significant findings,None
+IMG0000240,P0009724,65,Male,X-ray,Chest,2024-11-04,0,No significant findings,None
+IMG0000241,P0003643,29,Male,X-ray,Abdomen,2025-03-21,1,Inflammation,High
+IMG0000242,P0008559,73,Male,X-ray,Chest,2024-12-27,1,Cardiomegaly,Low
+IMG0000243,P0004650,54,Male,MRI,Knee,2024-08-06,0,No significant findings,None
+IMG0000244,P0001249,55,Male,CT,Abdomen,2025-01-14,0,No significant findings,None
+IMG0000245,P0002983,70,Female,MRI,Brain,2024-05-25,0,No significant findings,None
+IMG0000246,P0004575,32,Male,CT,Head,2024-04-23,1,Mass lesion,Medium
+IMG0000247,P0007447,56,Female,X-ray,Chest,2024-08-18,1,Pneumonia,High
+IMG0000248,P0009131,83,Male,X-ray,Chest,2024-11-25,0,No significant findings,None
+IMG0000249,P0004109,55,Female,X-ray,Chest,2025-03-03,1,Pneumonia,Critical
+IMG0000250,P0004023,40,Female,X-ray,Chest,2024-04-29,1,Pneumonia,High
+IMG0000251,P0007969,54,Female,Ultrasound,Pelvis,2025-01-07,0,No significant findings,None
+IMG0000252,P0000589,79,Female,CT,Chest,2024-06-21,0,No significant findings,None
+IMG0000253,P0001782,48,Female,X-ray,Chest,2025-03-23,0,No significant findings,None
+IMG0000254,P0004568,36,Female,X-ray,Chest,2025-01-09,0,No significant findings,None
+IMG0000255,P0009399,52,Male,CT,Head,2024-04-26,1,Subdural hematoma,Medium
+IMG0000256,P0004412,38,Male,CT,Head,2024-10-26,0,No significant findings,None
+IMG0000257,P0009038,26,Male,CT,Abdomen,2024-07-30,1,Degenerative changes,Low
+IMG0000258,P0004680,71,Male,X-ray,Chest,2024-06-08,1,Pleural effusion,Low
+IMG0000259,P0008990,75,Female,CT,Abdomen,2025-01-18,1,Inflammation,Low
+IMG0000260,P0000470,66,Female,X-ray,Chest,2024-10-07,0,No significant findings,None
+IMG0000261,P0004827,73,Female,MRI,Brain,2024-06-23,0,No significant findings,None
+IMG0000262,P0005067,53,Male,X-ray,Chest,2024-08-03,0,No significant findings,None
+IMG0000263,P0002994,80,Male,X-ray,Abdomen,2024-09-06,0,No significant findings,None
+IMG0000264,P0003129,50,Female,CT,Abdomen,2024-11-02,0,No significant findings,None
+IMG0000265,P0006167,60,Male,X-ray,Chest,2024-10-12,1,Pulmonary nodule,Low
+IMG0000266,P0001313,47,Female,CT,Pelvis,2024-03-12,0,No significant findings,None
+IMG0000267,P0006546,38,Female,X-ray,Chest,2025-03-20,0,No significant findings,None
+IMG0000268,P0009239,50,Male,X-ray,Chest,2024-11-13,0,No significant findings,None
+IMG0000269,P0009279,93,Female,MRI,Brain,2025-01-31,0,No significant findings,None
+IMG0000270,P0007934,83,Male,X-ray,Chest,2025-01-22,0,No significant findings,None
+IMG0000271,P0005358,71,Male,X-ray,Chest,2024-12-28,0,No significant findings,None
+IMG0000272,P0000282,53,Male,X-ray,Chest,2024-11-20,0,No significant findings,None
+IMG0000273,P0007609,53,Male,MRI,Shoulder,2024-03-24,1,Mass,Low
+IMG0000274,P0001398,85,Female,CT,Abdomen,2025-01-26,0,No significant findings,None
+IMG0000275,P0002733,60,Female,Ultrasound,Vascular,2024-09-14,1,Fluid collection,Low
+IMG0000276,P0004067,71,Female,MRI,Spine,2024-09-08,1,Inflammation,Low
+IMG0000277,P0002357,51,Female,MRI,Spine,2025-01-20,0,No significant findings,None
+IMG0000278,P0003238,55,Male,CT,Chest,2024-12-17,0,No significant findings,None
+IMG0000279,P0009964,71,Male,MRI,Spine,2024-07-30,0,No significant findings,None
+IMG0000280,P0007989,48,Female,CT,Pelvis,2024-11-27,1,Degenerative changes,Low
+IMG0000281,P0007210,65,Male,MRI,Spine,2024-09-24,0,No significant findings,None
+IMG0000282,P0000787,49,Male,MRI,Brain,2025-03-15,0,No significant findings,None
+IMG0000283,P0008234,67,Female,CT,Head,2024-12-29,0,No significant findings,None
+IMG0000284,P0005784,49,Female,X-ray,Extremity,2024-08-07,1,Mass,Medium
+IMG0000285,P0004643,86,Male,CT,Head,2025-03-09,0,No significant findings,None
+IMG0000286,P0004321,59,Female,CT,Abdomen,2024-06-23,0,No significant findings,None
+IMG0000287,P0004728,71,Male,CT,Chest,2024-07-27,1,Degenerative changes,Medium
+IMG0000288,P0005640,59,Male,Ultrasound,Pelvis,2024-09-15,1,Fracture,Medium
+IMG0000289,P0003410,52,Female,CT,Abdomen,2025-01-31,1,Mass,Medium
+IMG0000290,P0001358,68,Female,X-ray,Chest,2024-09-06,1,Pulmonary nodule,Low
+IMG0000291,P0009396,77,Female,CT,Chest,2024-12-08,1,Degenerative changes,Medium
+IMG0000292,P0000537,38,Male,MRI,Brain,2025-02-22,0,No significant findings,None
+IMG0000293,P0003868,61,Female,MRI,Spine,2025-01-30,0,No significant findings,None
+IMG0000294,P0004576,58,Female,CT,Head,2025-03-13,0,No significant findings,None
+IMG0000295,P0004525,63,Female,X-ray,Chest,2024-10-20,0,No significant findings,None
+IMG0000296,P0003583,80,Female,X-ray,Abdomen,2024-08-07,1,Inflammation,Medium
+IMG0000297,P0007898,72,Male,X-ray,Chest,2024-06-12,0,No significant findings,None
+IMG0000298,P0001350,77,Female,X-ray,Chest,2024-07-09,0,No significant findings,None
+IMG0000299,P0009136,63,Male,MRI,Spine,2024-06-25,1,Fracture,Medium
+IMG0000300,P0003856,53,Female,X-ray,Chest,2024-08-03,0,No significant findings,None
+IMG0000301,P0002625,23,Female,X-ray,Chest,2025-04-07,0,No significant findings,None
+IMG0000302,P0004307,81,Female,MRI,Shoulder,2025-03-20,0,No significant findings,None
+IMG0000303,P0009042,22,Male,CT,Abdomen,2024-06-19,0,No significant findings,None
+IMG0000304,P0002925,83,Female,X-ray,Chest,2024-07-26,0,No significant findings,None
+IMG0000305,P0009187,71,Female,CT,Chest,2024-08-03,0,No significant findings,None
+IMG0000306,P0006714,89,Female,X-ray,Chest,2024-03-07,1,Atelectasis,Low
+IMG0000307,P0007197,63,Male,CT,Head,2024-11-07,1,Hydrocephalus,High
+IMG0000308,P0006006,67,Female,MRI,Shoulder,2024-11-23,0,No significant findings,None
+IMG0000309,P0008541,57,Female,Ultrasound,Pelvis,2024-08-30,1,Inflammation,Medium
+IMG0000310,P0001537,61,Male,X-ray,Abdomen,2024-09-10,1,Fluid collection,Medium
+IMG0000311,P0002728,49,Male,X-ray,Chest,2024-10-02,1,Pneumonia,High
+IMG0000312,P0007381,58,Male,CT,Head,2024-08-20,0,No significant findings,None
+IMG0000313,P0004346,47,Male,X-ray,Chest,2024-11-24,0,No significant findings,None
+IMG0000314,P0002366,60,Female,CT,Chest,2025-03-24,0,No significant findings,None
+IMG0000315,P0007028,59,Female,X-ray,Abdomen,2024-12-16,0,No significant findings,None
+IMG0000316,P0006868,59,Male,CT,Chest,2024-07-19,1,Inflammation,Low
+IMG0000317,P0003875,58,Male,MRI,Spine,2024-07-04,0,No significant findings,None
+IMG0000318,P0006041,50,Male,Ultrasound,Pelvis,2025-01-26,0,No significant findings,None
+IMG0000319,P0003601,68,Male,MRI,Knee,2024-08-28,0,No significant findings,None
+IMG0000320,P0004174,64,Female,X-ray,Abdomen,2025-03-06,0,No significant findings,None
+IMG0000321,P0000923,64,Male,CT,Chest,2024-08-07,0,No significant findings,None
+IMG0000322,P0000618,45,Male,CT,Abdomen,2024-08-14,1,Degenerative changes,Medium
+IMG0000323,P0004400,70,Female,Ultrasound,Pelvis,2025-03-22,0,No significant findings,None
+IMG0000324,P0006342,48,Female,Ultrasound,Vascular,2024-04-09,0,No significant findings,None
+IMG0000325,P0003303,52,Male,Ultrasound,Vascular,2025-02-24,0,No significant findings,None
+IMG0000326,P0009239,61,Male,MRI,Brain,2024-11-17,0,No significant findings,None
+IMG0000327,P0009890,77,Male,CT,Chest,2025-03-25,1,Inflammation,Medium
+IMG0000328,P0005580,41,Female,MRI,Shoulder,2025-01-06,0,No significant findings,None
+IMG0000329,P0007600,45,Female,Ultrasound,Pelvis,2024-03-22,1,Fluid collection,High
+IMG0000330,P0008122,30,Female,CT,Abdomen,2024-03-28,1,Mass,Low
+IMG0000331,P0000082,67,Male,MRI,Brain,2024-07-04,1,Microhemorrhages,Low
+IMG0000332,P0000092,54,Male,Ultrasound,Pelvis,2024-09-06,0,No significant findings,None
+IMG0000333,P0006760,66,Female,CT,Abdomen,2024-08-03,1,Fracture,Low
+IMG0000334,P0007375,65,Female,X-ray,Chest,2025-01-28,1,Atelectasis,Medium
+IMG0000335,P0007837,71,Female,X-ray,Chest,2024-12-21,0,No significant findings,None
+IMG0000336,P0006724,60,Male,X-ray,Chest,2024-06-25,1,Atelectasis,Low
+IMG0000337,P0003048,49,Female,CT,Head,2024-04-04,1,Intracranial hemorrhage,Critical
+IMG0000338,P0001467,63,Female,CT,Chest,2024-10-31,0,No significant findings,None
+IMG0000339,P0005489,66,Female,CT,Abdomen,2024-06-24,1,Inflammation,Low
+IMG0000340,P0002698,54,Male,CT,Pelvis,2024-10-20,0,No significant findings,None
+IMG0000341,P0008983,61,Female,Ultrasound,Pelvis,2025-03-27,0,No significant findings,None
+IMG0000342,P0000475,39,Male,X-ray,Abdomen,2024-04-02,1,Fracture,Medium
+IMG0000343,P0008695,40,Male,MRI,Knee,2024-09-01,1,Mass,Low
+IMG0000344,P0000230,35,Male,X-ray,Abdomen,2024-03-12,1,Inflammation,Low
+IMG0000345,P0007021,64,Female,CT,Abdomen,2024-10-06,0,No significant findings,None
+IMG0000346,P0009778,71,Male,CT,Chest,2024-05-21,0,No significant findings,None
+IMG0000347,P0009966,38,Female,MRI,Spine,2024-09-12,0,No significant findings,None
+IMG0000348,P0006833,62,Male,CT,Head,2024-06-25,1,Intracranial hemorrhage,High
+IMG0000349,P0002256,66,Male,X-ray,Abdomen,2024-05-15,0,No significant findings,None
+IMG0000350,P0003970,54,Male,X-ray,Chest,2024-04-13,1,Pneumonia,Critical
+IMG0000351,P0004838,84,Female,X-ray,Chest,2024-03-20,1,Pleural effusion,Low
+IMG0000352,P0000383,38,Female,CT,Chest,2024-04-05,1,Fluid collection,High
+IMG0000353,P0000760,54,Female,CT,Pelvis,2024-12-24,0,No significant findings,None
+IMG0000354,P0005243,18,Female,CT,Abdomen,2024-09-09,0,No significant findings,None
+IMG0000355,P0003952,65,Male,MRI,Brain,2024-05-19,1,Tumor,Low
+IMG0000356,P0000942,49,Male,Ultrasound,Vascular,2024-08-20,0,No significant findings,None
+IMG0000357,P0002695,30,Male,CT,Pelvis,2024-09-08,0,No significant findings,None
+IMG0000358,P0001296,68,Male,X-ray,Chest,2024-05-19,1,Pulmonary nodule,Medium
+IMG0000359,P0002147,57,Male,MRI,Spine,2024-09-25,1,Inflammation,Low
+IMG0000360,P0006874,55,Female,CT,Chest,2024-08-03,0,No significant findings,None
+IMG0000361,P0009831,76,Male,CT,Chest,2024-05-27,0,No significant findings,None
+IMG0000362,P0004396,48,Female,CT,Pelvis,2024-07-19,1,Mass,Low
+IMG0000363,P0000608,69,Female,CT,Abdomen,2024-09-04,1,Fracture,Medium
+IMG0000364,P0000881,71,Female,MRI,Knee,2024-07-20,1,Fluid collection,Low
+IMG0000365,P0007316,51,Male,Ultrasound,Pelvis,2024-10-21,0,No significant findings,None
+IMG0000366,P0004891,60,Female,Ultrasound,Breast,2024-11-04,1,Inflammation,Medium
+IMG0000367,P0006480,85,Female,MRI,Brain,2025-01-29,1,Multiple sclerosis plaques,Medium
+IMG0000368,P0007505,44,Female,MRI,Brain,2024-08-18,0,No significant findings,None
+IMG0000369,P0001994,68,Female,X-ray,Chest,2025-02-14,1,Pulmonary nodule,Low
+IMG0000370,P0001323,60,Male,MRI,Knee,2024-10-21,1,Fracture,Low
+IMG0000371,P0007768,79,Male,X-ray,Abdomen,2025-03-04,0,No significant findings,None
+IMG0000372,P0001011,59,Male,MRI,Spine,2024-05-22,0,No significant findings,None
+IMG0000373,P0006903,70,Female,X-ray,Chest,2024-07-24,1,Pulmonary nodule,Medium
+IMG0000374,P0000688,35,Female,X-ray,Chest,2024-08-01,0,No significant findings,None
+IMG0000375,P0004068,27,Male,X-ray,Chest,2025-03-27,1,Atelectasis,Medium
+IMG0000376,P0009434,44,Male,CT,Head,2024-11-01,0,No significant findings,None
+IMG0000377,P0003447,53,Female,CT,Chest,2025-03-11,0,No significant findings,None
+IMG0000378,P0007897,54,Female,X-ray,Abdomen,2025-02-11,1,Fluid collection,Medium
+IMG0000379,P0007255,76,Male,MRI,Knee,2024-10-30,0,No significant findings,None
+IMG0000380,P0008075,54,Male,MRI,Brain,2024-07-17,0,No significant findings,None
+IMG0000381,P0008632,60,Female,MRI,Brain,2024-08-22,1,Stroke,High
+IMG0000382,P0009416,62,Male,MRI,Knee,2024-05-25,0,No significant findings,None
+IMG0000383,P0002462,50,Male,MRI,Brain,2024-05-15,1,Atrophy,Low
+IMG0000384,P0005123,59,Female,Ultrasound,Abdomen,2024-09-28,0,No significant findings,None
+IMG0000385,P0004178,75,Male,CT,Head,2024-12-22,0,No significant findings,None
+IMG0000386,P0006149,64,Male,CT,Chest,2024-04-17,0,No significant findings,None
+IMG0000387,P0001752,68,Female,MRI,Brain,2024-04-22,1,Microhemorrhages,Low
+IMG0000388,P0004629,64,Male,X-ray,Chest,2024-04-21,0,No significant findings,None
+IMG0000389,P0005916,84,Female,X-ray,Chest,2024-07-25,1,Pulmonary nodule,Low
+IMG0000390,P0004546,44,Male,MRI,Brain,2024-12-20,1,Microhemorrhages,Low
+IMG0000391,P0003359,97,Male,X-ray,Chest,2024-11-30,0,No significant findings,None
+IMG0000392,P0005013,74,Female,CT,Abdomen,2024-12-07,0,No significant findings,None
+IMG0000393,P0007604,77,Male,X-ray,Abdomen,2024-12-14,0,No significant findings,None
+IMG0000394,P0004014,79,Male,MRI,Brain,2024-08-22,0,No significant findings,None
+IMG0000395,P0000899,75,Female,Ultrasound,Abdomen,2024-06-20,0,No significant findings,None
+IMG0000396,P0001189,40,Female,X-ray,Chest,2024-03-19,0,No significant findings,None
+IMG0000397,P0000652,43,Male,X-ray,Chest,2024-08-19,0,No significant findings,None
+IMG0000398,P0007996,70,Male,X-ray,Abdomen,2024-05-27,0,No significant findings,None
+IMG0000399,P0000982,68,Male,CT,Head,2024-08-18,0,No significant findings,None
+IMG0000400,P0000575,73,Female,CT,Chest,2024-06-17,0,No significant findings,None
+IMG0000401,P0008524,60,Male,CT,Head,2024-09-30,0,No significant findings,None
+IMG0000402,P0004307,40,Male,X-ray,Chest,2025-03-15,1,Cardiomegaly,Medium
+IMG0000403,P0008480,58,Female,CT,Head,2024-03-26,0,No significant findings,None
+IMG0000404,P0006753,71,Female,X-ray,Extremity,2024-10-25,1,Inflammation,Medium
+IMG0000405,P0007740,56,Female,CT,Abdomen,2024-06-20,0,No significant findings,None
+IMG0000406,P0001055,59,Female,X-ray,Chest,2024-09-11,0,No significant findings,None
+IMG0000407,P0006026,60,Male,CT,Abdomen,2025-03-13,0,No significant findings,None
+IMG0000408,P0004369,52,Male,X-ray,Chest,2024-05-04,1,Cardiomegaly,Medium
+IMG0000409,P0001324,47,Male,X-ray,Chest,2024-10-13,0,No significant findings,None
+IMG0000410,P0003595,91,Female,X-ray,Extremity,2025-02-24,1,Inflammation,Low
+IMG0000411,P0003827,83,Male,CT,Chest,2025-01-27,0,No significant findings,None
+IMG0000412,P0002323,76,Male,CT,Pelvis,2024-03-17,1,Fracture,Medium
+IMG0000413,P0001882,66,Male,MRI,Spine,2024-08-30,0,No significant findings,None
+IMG0000414,P0001153,44,Female,X-ray,Extremity,2024-06-02,0,No significant findings,None
+IMG0000415,P0003370,73,Male,X-ray,Abdomen,2024-08-24,0,No significant findings,None
+IMG0000416,P0008288,76,Male,X-ray,Chest,2024-05-15,0,No significant findings,None
+IMG0000417,P0000276,54,Female,X-ray,Abdomen,2024-08-19,0,No significant findings,None
+IMG0000418,P0005404,43,Male,X-ray,Chest,2024-07-15,0,No significant findings,None
+IMG0000419,P0005292,66,Female,X-ray,Chest,2024-03-07,0,No significant findings,None
+IMG0000420,P0008523,76,Female,CT,Chest,2024-07-29,1,Mass,Medium
+IMG0000421,P0004198,50,Male,CT,Abdomen,2024-10-28,1,Degenerative changes,Low
+IMG0000422,P0003696,67,Female,MRI,Knee,2025-04-03,1,Fracture,Low
+IMG0000423,P0003202,46,Female,X-ray,Abdomen,2025-02-21,1,Fluid collection,Low
+IMG0000424,P0002086,42,Female,CT,Abdomen,2024-04-03,0,No significant findings,None
+IMG0000425,P0000306,63,Male,MRI,Knee,2025-01-31,0,No significant findings,None
+IMG0000426,P0000883,47,Female,X-ray,Chest,2024-07-29,1,Cardiomegaly,Medium
+IMG0000427,P0006663,66,Male,MRI,Knee,2025-02-09,0,No significant findings,None
+IMG0000428,P0006189,35,Male,Ultrasound,Vascular,2024-03-12,0,No significant findings,None
+IMG0000429,P0004289,47,Female,MRI,Knee,2024-12-11,0,No significant findings,None
+IMG0000430,P0003589,75,Female,CT,Pelvis,2024-10-05,0,No significant findings,None
+IMG0000431,P0003641,70,Male,CT,Head,2025-02-20,1,Hydrocephalus,Low
+IMG0000432,P0007336,66,Female,MRI,Brain,2024-09-30,1,Microhemorrhages,Medium
+IMG0000433,P0005108,53,Male,X-ray,Abdomen,2024-07-18,0,No significant findings,None
+IMG0000434,P0002162,60,Male,MRI,Brain,2024-10-19,0,No significant findings,None
+IMG0000435,P0006709,56,Female,CT,Chest,2025-02-22,1,Fracture,Low
+IMG0000436,P0005167,95,Female,MRI,Knee,2024-11-17,0,No significant findings,None
+IMG0000437,P0003141,64,Female,X-ray,Chest,2024-08-06,1,Pneumonia,High
+IMG0000438,P0006131,48,Female,X-ray,Extremity,2024-09-05,1,Inflammation,Low
+IMG0000439,P0004603,58,Female,CT,Pelvis,2024-10-15,1,Mass,Low
+IMG0000440,P0000154,34,Female,CT,Chest,2024-05-16,0,No significant findings,None
+IMG0000441,P0003630,31,Female,X-ray,Abdomen,2024-03-21,1,Inflammation,Medium
+IMG0000442,P0008652,81,Female,CT,Head,2024-04-08,0,No significant findings,None
+IMG0000443,P0001396,64,Female,X-ray,Abdomen,2024-11-15,1,Fracture,Medium
+IMG0000444,P0008982,53,Female,CT,Chest,2025-03-05,0,No significant findings,None
+IMG0000445,P0006797,59,Male,CT,Abdomen,2024-11-28,0,No significant findings,None
+IMG0000446,P0006594,58,Female,X-ray,Chest,2024-06-09,1,Pleural effusion,Low
+IMG0000447,P0003709,61,Female,CT,Abdomen,2024-03-07,0,No significant findings,None
+IMG0000448,P0001867,77,Female,X-ray,Abdomen,2024-11-07,1,Fracture,Medium
+IMG0000449,P0009880,68,Male,CT,Head,2024-06-11,0,No significant findings,None
+IMG0000450,P0000576,53,Female,X-ray,Abdomen,2025-02-20,1,Fracture,Low
+IMG0000451,P0007263,33,Female,MRI,Shoulder,2024-10-23,0,No significant findings,None
+IMG0000452,P0003764,44,Female,X-ray,Chest,2024-10-13,0,No significant findings,None
+IMG0000453,P0008553,71,Female,CT,Abdomen,2024-07-20,0,No significant findings,None
+IMG0000454,P0000456,83,Female,CT,Chest,2025-01-04,1,Inflammation,Medium
+IMG0000455,P0003561,46,Male,X-ray,Chest,2024-05-28,1,Pulmonary nodule,High
+IMG0000456,P0003110,44,Female,X-ray,Chest,2024-06-22,1,Pulmonary nodule,Medium
+IMG0000457,P0003529,53,Female,X-ray,Chest,2024-08-22,0,No significant findings,None
+IMG0000458,P0004907,86,Male,X-ray,Chest,2024-09-30,0,No significant findings,None
+IMG0000459,P0004968,62,Male,CT,Abdomen,2024-11-16,0,No significant findings,None
+IMG0000460,P0008541,48,Male,CT,Head,2024-10-27,0,No significant findings,None
+IMG0000461,P0004547,54,Female,X-ray,Chest,2025-03-21,1,Cardiomegaly,Low
+IMG0000462,P0004083,52,Female,CT,Abdomen,2024-03-19,0,No significant findings,None
+IMG0000463,P0000108,70,Male,Ultrasound,Abdomen,2025-01-31,0,No significant findings,None
+IMG0000464,P0007751,89,Female,MRI,Spine,2025-01-01,1,Degenerative changes,Low
+IMG0000465,P0001231,61,Female,X-ray,Chest,2025-04-02,1,Atelectasis,Low
+IMG0000466,P0000576,76,Female,X-ray,Chest,2024-06-10,1,Pneumonia,High
+IMG0000467,P0000240,39,Female,CT,Pelvis,2024-10-14,1,Fracture,Low
+IMG0000468,P0007566,95,Female,X-ray,Abdomen,2024-09-15,0,No significant findings,None
+IMG0000469,P0005809,39,Male,X-ray,Chest,2024-06-14,0,No significant findings,None
+IMG0000470,P0006721,78,Male,X-ray,Chest,2024-06-25,0,No significant findings,None
+IMG0000471,P0000370,65,Male,X-ray,Extremity,2024-08-23,0,No significant findings,None
+IMG0000472,P0006054,41,Female,CT,Abdomen,2024-03-21,0,No significant findings,None
+IMG0000473,P0000097,72,Male,CT,Head,2024-12-11,1,Mass lesion,Low
+IMG0000474,P0005606,59,Female,X-ray,Abdomen,2024-07-13,1,Fracture,Low
+IMG0000475,P0008156,46,Male,CT,Head,2025-01-18,1,Mass lesion,Medium
+IMG0000476,P0009687,60,Male,CT,Chest,2024-10-31,0,No significant findings,None
+IMG0000477,P0002455,35,Male,CT,Head,2024-10-03,1,Mass lesion,Low
+IMG0000478,P0003446,52,Male,Ultrasound,Breast,2024-10-03,0,No significant findings,None
+IMG0000479,P0009597,45,Female,Ultrasound,Vascular,2024-06-05,0,No significant findings,None
+IMG0000480,P0004811,57,Male,CT,Head,2024-09-27,1,Hydrocephalus,Medium
+IMG0000481,P0007827,34,Male,MRI,Spine,2024-07-23,1,Inflammation,High
+IMG0000482,P0002691,33,Male,X-ray,Chest,2024-09-30,0,No significant findings,None
+IMG0000483,P0000972,47,Female,CT,Head,2024-06-24,0,No significant findings,None
+IMG0000484,P0009704,59,Male,CT,Chest,2024-12-24,0,No significant findings,None
+IMG0000485,P0007806,45,Male,CT,Abdomen,2024-12-01,0,No significant findings,None
+IMG0000486,P0002923,66,Male,X-ray,Chest,2025-01-02,0,No significant findings,None
+IMG0000487,P0005001,70,Male,X-ray,Chest,2025-02-04,1,Pneumonia,Critical
+IMG0000488,P0000808,47,Male,X-ray,Chest,2024-12-02,0,No significant findings,None
+IMG0000489,P0007476,80,Female,CT,Abdomen,2024-08-29,0,No significant findings,None
+IMG0000490,P0005963,55,Male,Ultrasound,Abdomen,2024-06-20,1,Fluid collection,Medium
+IMG0000491,P0005935,87,Female,X-ray,Chest,2024-03-23,0,No significant findings,None
+IMG0000492,P0004230,56,Female,Ultrasound,Abdomen,2024-05-18,0,No significant findings,None
+IMG0000493,P0000327,43,Male,X-ray,Chest,2024-03-14,0,No significant findings,None
+IMG0000494,P0000682,78,Male,Ultrasound,Pelvis,2024-12-26,1,Fluid collection,Medium
+IMG0000495,P0000123,44,Female,MRI,Shoulder,2024-11-08,1,Degenerative changes,Medium
+IMG0000496,P0000753,77,Male,X-ray,Chest,2024-12-16,1,Pleural effusion,Low
+IMG0000497,P0008114,61,Male,X-ray,Chest,2025-02-13,0,No significant findings,None
+IMG0000498,P0001606,51,Female,X-ray,Chest,2024-12-09,1,Pneumonia,High
+IMG0000499,P0006525,48,Male,Ultrasound,Abdomen,2024-09-04,1,Degenerative changes,Low

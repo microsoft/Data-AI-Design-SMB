@@ -1,0 +1,26 @@
+# Use a recent version of the Docker Compose file format
+version: '3.9'
+
+services:
+  # Define the service for your web application
+  webapp:
+    # Build the image using the Dockerfile in the current directory (.)
+    build: .
+    # Map port 5001 on your host machine to port 5000 inside the container
+    # (Port 5000 is exposed in the Dockerfile and used by Gunicorn)
+    ports:
+      - "5001:5000"
+    # Load environment variables from the .env file in the current directory
+    # This is the recommended way to handle secrets for local development
+    # Ensure your .env file contains all the variables needed by app.py
+    env_file:
+      - .env
+    # Alternatively (NOT RECOMMENDED FOR SECRETS), you could define them here:
+    # environment:
+    #   - AZURE_OPENAI_ENDPOINT=YOUR_AZURE_OPENAI_ENDPOINT
+    #   - AZURE_OPENAI_API_KEY=YOUR_AZURE_OPENAI_API_KEY
+    #   - OPENAI_API_VERSION=YOUR_OPENAI_API_VERSION
+    #   - AZURE_OPENAI_DEPLOYMENT_NAME=YOUR_GPT_DEPLOYMENT_NAME
+    #   - AZURE_ML_ENDPOINT_URL=YOUR_AZURE_ML_SCORING_URI
+    #   - AZURE_ML_API_KEY=YOUR_AZURE_ML_ENDPOINT_API_KEY
+    #   # Add any other environment variables your app might need

@@ -1,0 +1,501 @@
+PatientID,Age,Gender,NumPriorAdmissions,HasDiabetes,HasHypertension,HasHeartDisease,LengthOfStay,DischargeDisposition,ReadmittedWithin30Days
+PID_0000,40,Female,2,0,1,1,5,Home,0
+PID_0001,66,Female,4,0,1,0,12,Expired,0
+PID_0002,71,Male,5,0,1,0,5,Home,0
+PID_0003,61,Male,3,0,0,0,7,Home,0
+PID_0004,60,Female,2,1,0,1,8,Skilled Nursing Facility,1
+PID_0005,83,Female,2,1,0,1,5,Home,1
+PID_0006,33,Female,1,1,0,0,6,Home,0
+PID_0007,88,Male,1,1,1,0,28,Home,1
+PID_0008,64,Male,1,0,0,0,4,Home,0
+PID_0009,60,Female,2,0,0,1,9,Other Facility,1
+PID_0010,32,Female,1,0,0,0,11,Skilled Nursing Facility,0
+PID_0011,75,Female,1,0,0,1,7,Home,1
+PID_0012,34,Female,0,0,0,0,9,Home,1
+PID_0013,25,Female,4,1,0,0,6,Home,1
+PID_0014,88,Male,3,0,1,1,15,Home,0
+PID_0015,55,Male,0,0,1,0,8,Skilled Nursing Facility,0
+PID_0016,44,Male,2,0,0,0,10,Home,1
+PID_0017,47,Male,2,0,0,0,6,Expired,0
+PID_0018,69,Male,1,0,0,0,5,Home,1
+PID_0019,51,Male,0,0,0,0,5,Home,0
+PID_0020,48,Male,3,1,0,1,7,Home,0
+PID_0021,86,Female,1,1,0,0,13,Home,1
+PID_0022,82,Other,5,0,0,1,4,Home,0
+PID_0023,59,Male,2,0,1,1,7,Home,0
+PID_0024,74,Male,2,0,0,0,7,Home,1
+PID_0025,49,Other,0,0,1,1,4,Home,0
+PID_0026,20,Other,1,0,1,0,6,Home,0
+PID_0027,55,Female,2,0,0,0,11,Home,0
+PID_0028,44,Female,1,0,0,0,9,Home,1
+PID_0029,89,Female,1,1,0,0,4,Expired,0
+PID_0030,80,Female,3,0,0,0,7,Home,1
+PID_0031,20,Female,2,1,0,1,8,Home,1
+PID_0032,48,Male,2,1,1,0,8,Home,1
+PID_0033,27,Male,1,1,1,0,8,Home,0
+PID_0034,82,Female,2,0,1,0,10,Home,1
+PID_0035,25,Female,1,0,0,0,5,Home,0
+PID_0036,30,Female,0,0,1,0,6,Home,0
+PID_0037,90,Female,2,0,0,0,5,Home,0
+PID_0038,87,Male,0,0,0,0,12,Home,0
+PID_0039,27,Male,2,1,1,0,4,Home,0
+PID_0040,26,Female,3,1,0,0,7,Home,1
+PID_0041,94,Female,4,0,1,1,7,Home,1
+PID_0042,19,Female,2,1,0,1,8,Skilled Nursing Facility,1
+PID_0043,57,Female,1,1,0,0,7,Home,0
+PID_0044,42,Male,0,0,0,1,7,Home,0
+PID_0045,22,Male,2,0,1,1,11,Other Facility,0
+PID_0046,83,Female,2,0,0,1,9,Other Facility,0
+PID_0047,26,Male,1,0,0,1,13,Skilled Nursing Facility,0
+PID_0048,57,Male,1,1,0,0,21,Home,1
+PID_0049,56,Female,2,0,0,1,4,Home,1
+PID_0050,87,Female,2,0,0,1,9,Home,0
+PID_0051,60,Male,1,1,0,0,1,Other Facility,1
+PID_0052,42,Other,2,0,1,0,3,Skilled Nursing Facility,0
+PID_0053,18,Male,1,0,0,0,9,Home,0
+PID_0054,82,Female,1,0,0,0,4,Home,1
+PID_0055,50,Male,4,0,1,0,13,Home,1
+PID_0056,70,Male,1,0,1,0,3,Home,0
+PID_0057,19,Female,1,0,0,0,5,Other Facility,1
+PID_0058,40,Male,1,0,1,0,3,Home,0
+PID_0059,71,Male,1,1,1,0,8,Skilled Nursing Facility,1
+PID_0060,19,Male,2,1,1,0,14,Skilled Nursing Facility,1
+PID_0061,63,Male,2,0,0,0,4,Skilled Nursing Facility,1
+PID_0062,32,Other,0,1,0,0,9,Home,0
+PID_0063,31,Female,0,0,0,0,8,Home,0
+PID_0064,90,Female,0,0,1,0,15,Home,0
+PID_0065,81,Male,3,0,0,0,9,Home,0
+PID_0066,50,Female,1,0,0,0,2,Home,0
+PID_0067,69,Female,4,1,1,0,2,Skilled Nursing Facility,1
+PID_0068,60,Female,2,1,0,1,5,Home,1
+PID_0069,32,Male,0,1,1,0,11,Home,1
+PID_0070,65,Male,0,0,0,1,14,Home,0
+PID_0071,33,Female,2,0,1,0,5,Home,0
+PID_0072,69,Female,1,0,0,0,3,Home,0
+PID_0073,91,Male,3,0,1,0,7,Expired,0
+PID_0074,72,Male,0,0,1,1,16,Skilled Nursing Facility,0
+PID_0075,55,Female,2,0,0,0,35,Home,1
+PID_0076,79,Female,1,1,0,1,5,Expired,0
+PID_0077,76,Female,0,1,0,0,12,Home,1
+PID_0078,57,Female,1,0,0,0,2,Home,0
+PID_0079,19,Female,1,0,1,0,4,Skilled Nursing Facility,0
+PID_0080,71,Male,0,1,1,0,7,Home,1
+PID_0081,32,Male,1,0,1,0,6,Skilled Nursing Facility,0
+PID_0082,34,Male,3,1,0,0,10,Other Facility,0
+PID_0083,37,Female,3,0,0,0,5,Skilled Nursing Facility,1
+PID_0084,35,Male,3,1,1,0,22,Home,0
+PID_0085,54,Female,1,1,1,0,10,Home,0
+PID_0086,76,Female,3,0,0,0,15,Skilled Nursing Facility,1
+PID_0087,89,Male,1,1,1,0,8,Home,1
+PID_0088,71,Male,1,0,0,0,5,Home,0
+PID_0089,38,Female,2,0,1,0,11,Skilled Nursing Facility,1
+PID_0090,77,Female,3,0,0,0,9,Home,0
+PID_0091,20,Female,1,0,1,0,20,Home,1
+PID_0092,26,Male,0,0,1,0,11,Home,0
+PID_0093,83,Female,2,0,0,0,6,Home,1
+PID_0094,58,Female,2,0,1,1,15,Home,1
+PID_0095,76,Male,0,1,1,0,16,Home,1
+PID_0096,93,Female,1,1,0,1,14,Home,1
+PID_0097,43,Male,1,1,0,0,18,Home,1
+PID_0098,75,Male,2,1,0,0,8,Home,1
+PID_0099,19,Male,1,0,0,0,4,Other Facility,1
+PID_0100,89,Female,5,1,1,0,7,Home,1
+PID_0101,57,Male,1,1,1,0,11,Home,1
+PID_0102,59,Female,1,0,0,0,3,Other Facility,0
+PID_0103,24,Male,2,0,1,0,13,Home,0
+PID_0104,87,Male,2,1,1,0,6,Home,0
+PID_0105,65,Female,1,0,0,0,7,Skilled Nursing Facility,1
+PID_0106,83,Male,2,1,0,1,6,Home,1
+PID_0107,77,Female,2,0,1,0,5,Home,0
+PID_0108,58,Male,2,0,0,0,11,Home,1
+PID_0109,82,Male,0,1,0,0,4,Home,1
+PID_0110,29,Female,2,1,0,0,8,Home,1
+PID_0111,59,Male,1,1,1,0,9,Home,0
+PID_0112,90,Male,2,1,0,0,8,Home,0
+PID_0113,54,Male,5,0,1,0,6,Home,1
+PID_0114,22,Female,1,0,0,1,9,Skilled Nursing Facility,0
+PID_0115,61,Female,1,0,1,1,15,Skilled Nursing Facility,1
+PID_0116,18,Female,1,1,1,0,5,Home,1
+PID_0117,75,Female,1,1,0,0,11,Home,0
+PID_0118,94,Male,4,0,0,0,8,Other Facility,1
+PID_0119,30,Female,1,1,1,1,5,Home,1
+PID_0120,69,Female,2,0,1,1,10,Home,0
+PID_0121,23,Male,1,0,0,0,16,Home,0
+PID_0122,78,Male,1,0,0,0,5,Home,0
+PID_0123,43,Male,3,0,1,0,5,Home,1
+PID_0124,18,Female,0,1,1,0,8,Other Facility,0
+PID_0125,46,Female,0,1,1,0,6,Home,0
+PID_0126,83,Female,2,1,0,0,8,Home,1
+PID_0127,52,Male,4,0,1,0,6,Home,1
+PID_0128,44,Female,3,0,0,0,5,Home,0
+PID_0129,89,Female,4,0,1,0,9,Home,1
+PID_0130,45,Female,1,0,1,0,2,Home,0
+PID_0131,85,Female,1,1,0,0,6,Expired,0
+PID_0132,59,Male,0,0,1,1,4,Home,0
+PID_0133,73,Female,2,1,1,0,6,Home,1
+PID_0134,82,Male,2,0,0,0,3,Home,0
+PID_0135,58,Male,5,0,1,0,5,Home,0
+PID_0136,44,Female,2,1,1,0,9,Home,1
+PID_0137,25,Female,0,0,0,0,3,Home,1
+PID_0138,65,Male,2,0,0,0,4,Home,1
+PID_0139,28,Female,3,1,0,0,19,Other Facility,0
+PID_0140,69,Male,3,0,1,0,4,Home,0
+PID_0141,56,Male,0,1,1,0,4,Home,1
+PID_0142,93,Male,1,0,1,0,9,Expired,0
+PID_0143,27,Male,2,0,1,0,3,Home,0
+PID_0144,87,Female,1,0,0,0,4,Home,1
+PID_0145,88,Male,0,0,0,0,2,Other Facility,0
+PID_0146,72,Other,2,0,0,1,19,Skilled Nursing Facility,0
+PID_0147,49,Male,4,0,1,1,3,Skilled Nursing Facility,1
+PID_0148,33,Male,3,1,1,0,6,Skilled Nursing Facility,0
+PID_0149,31,Male,3,0,1,0,9,Skilled Nursing Facility,1
+PID_0150,51,Male,2,0,1,0,10,Home,1
+PID_0151,24,Male,6,1,0,0,14,Expired,0
+PID_0152,31,Female,1,0,1,0,6,Other Facility,1
+PID_0153,65,Male,3,0,1,0,8,Home,1
+PID_0154,79,Male,2,0,1,0,6,Home,0
+PID_0155,30,Female,0,1,1,1,7,Home,1
+PID_0156,83,Male,2,0,0,1,6,Expired,0
+PID_0157,57,Female,3,0,0,0,3,Home,1
+PID_0158,66,Female,0,0,0,0,7,Expired,0
+PID_0159,22,Male,4,0,1,1,32,Home,1
+PID_0160,52,Male,3,0,1,1,7,Home,1
+PID_0161,87,Male,0,1,0,0,14,Home,0
+PID_0162,77,Male,1,0,1,0,9,Expired,0
+PID_0163,88,Female,1,1,1,1,11,Home,1
+PID_0164,33,Other,1,1,0,0,9,Home,0
+PID_0165,45,Female,3,1,0,1,8,Home,1
+PID_0166,49,Male,2,1,0,0,10,Skilled Nursing Facility,0
+PID_0167,78,Male,2,1,1,1,13,Home,1
+PID_0168,25,Male,5,1,1,0,13,Skilled Nursing Facility,1
+PID_0169,79,Male,3,0,1,0,8,Home,0
+PID_0170,36,Male,1,1,1,0,4,Skilled Nursing Facility,0
+PID_0171,83,Male,2,1,1,0,8,Skilled Nursing Facility,1
+PID_0172,74,Female,1,1,1,0,10,Home,1
+PID_0173,81,Female,1,0,0,1,10,Home,1
+PID_0174,63,Male,3,1,1,0,2,Home,1
+PID_0175,90,Female,0,0,1,0,8,Home,1
+PID_0176,65,Female,1,1,0,0,6,Home,0
+PID_0177,72,Male,0,1,0,0,10,Skilled Nursing Facility,0
+PID_0178,78,Male,2,0,0,0,7,Home,0
+PID_0179,55,Male,2,0,0,0,4,Expired,0
+PID_0180,19,Male,1,0,0,0,9,Home,0
+PID_0181,51,Female,3,1,0,0,17,Home,1
+PID_0182,46,Female,1,0,1,1,6,Home,0
+PID_0183,46,Female,2,0,0,0,3,Home,1
+PID_0184,91,Male,1,0,1,0,15,Home,1
+PID_0185,28,Male,2,0,0,0,8,Home,1
+PID_0186,81,Male,1,1,0,0,17,Home,1
+PID_0187,34,Male,2,0,1,0,4,Other Facility,0
+PID_0188,60,Male,2,1,0,1,11,Home,1
+PID_0189,71,Male,4,1,1,1,4,Home,1
+PID_0190,66,Female,1,1,1,0,4,Home,1
+PID_0191,81,Female,2,0,0,1,5,Expired,0
+PID_0192,90,Male,2,1,1,1,7,Home,0
+PID_0193,57,Male,1,0,1,0,5,Home,1
+PID_0194,37,Female,2,0,0,0,6,Home,0
+PID_0195,87,Male,4,1,1,0,11,Other Facility,1
+PID_0196,87,Female,3,0,1,1,7,Skilled Nursing Facility,1
+PID_0197,42,Female,2,1,0,0,4,Home,0
+PID_0198,74,Male,1,0,1,0,6,Other Facility,1
+PID_0199,69,Male,2,0,0,0,11,Skilled Nursing Facility,1
+PID_0200,56,Female,1,1,1,1,14,Skilled Nursing Facility,1
+PID_0201,35,Male,2,0,0,0,7,Home,1
+PID_0202,36,Male,2,1,1,0,6,Expired,0
+PID_0203,94,Male,3,0,1,0,9,Home,1
+PID_0204,21,Female,5,0,1,0,7,Home,1
+PID_0205,45,Male,1,0,0,0,4,Skilled Nursing Facility,0
+PID_0206,75,Female,0,0,0,0,6,Home,0
+PID_0207,26,Male,1,0,0,0,15,Expired,0
+PID_0208,65,Male,0,1,0,0,11,Expired,0
+PID_0209,27,Female,4,1,0,0,10,Home,1
+PID_0210,72,Male,3,1,1,0,6,Other Facility,1
+PID_0211,55,Male,1,0,1,0,4,Home,0
+PID_0212,40,Male,1,0,0,0,3,Home,0
+PID_0213,59,Female,2,1,1,0,4,Home,0
+PID_0214,88,Male,2,0,1,0,4,Home,0
+PID_0215,56,Male,1,1,0,0,5,Other Facility,1
+PID_0216,25,Female,4,1,1,0,2,Home,0
+PID_0217,69,Female,2,0,0,0,2,Home,0
+PID_0218,48,Male,2,0,1,0,11,Expired,0
+PID_0219,70,Female,1,0,1,0,10,Home,1
+PID_0220,33,Male,2,1,0,0,8,Home,0
+PID_0221,81,Female,4,0,0,0,4,Home,0
+PID_0222,73,Male,3,0,0,0,7,Home,0
+PID_0223,41,Female,1,1,0,0,7,Home,0
+PID_0224,82,Female,1,0,0,1,10,Other Facility,0
+PID_0225,27,Female,1,0,0,0,9,Other Facility,0
+PID_0226,31,Female,0,1,1,0,18,Home,1
+PID_0227,93,Female,1,0,0,0,6,Home,1
+PID_0228,89,Female,1,0,0,0,4,Home,1
+PID_0229,43,Male,2,0,1,0,10,Other Facility,0
+PID_0230,63,Female,0,1,1,0,2,Skilled Nursing Facility,0
+PID_0231,94,Male,1,0,0,0,3,Expired,0
+PID_0232,74,Male,4,1,1,1,12,Home,1
+PID_0233,87,Male,0,0,0,0,9,Home,1
+PID_0234,20,Female,0,0,0,0,9,Skilled Nursing Facility,0
+PID_0235,42,Male,0,1,1,0,6,Home,0
+PID_0236,62,Female,2,0,0,0,14,Home,1
+PID_0237,78,Male,2,0,0,1,6,Home,1
+PID_0238,18,Female,0,1,0,1,6,Skilled Nursing Facility,0
+PID_0239,54,Male,1,0,0,0,5,Home,0
+PID_0240,68,Male,2,1,1,0,13,Home,0
+PID_0241,73,Male,4,1,1,0,6,Home,1
+PID_0242,21,Male,0,0,1,0,16,Home,0
+PID_0243,63,Male,0,0,0,0,5,Home,0
+PID_0244,77,Female,2,0,1,0,6,Skilled Nursing Facility,0
+PID_0245,85,Male,2,0,1,0,13,Home,1
+PID_0246,32,Female,0,1,0,0,10,Home,0
+PID_0247,22,Female,2,1,1,0,11,Home,0
+PID_0248,39,Female,3,1,1,0,10,Other Facility,0
+PID_0249,84,Male,2,1,0,1,11,Home,1
+PID_0250,67,Female,0,0,1,0,2,Home,1
+PID_0251,31,Male,2,0,0,1,7,Other Facility,0
+PID_0252,60,Male,1,0,0,0,9,Home,1
+PID_0253,52,Female,1,0,0,0,10,Skilled Nursing Facility,0
+PID_0254,77,Male,0,0,0,0,2,Home,1
+PID_0255,75,Male,2,0,0,0,10,Expired,0
+PID_0256,43,Female,3,0,1,0,7,Home,0
+PID_0257,31,Male,2,1,0,0,7,Home,0
+PID_0258,45,Female,2,1,0,0,9,Home,1
+PID_0259,22,Female,2,0,1,0,15,Home,1
+PID_0260,29,Male,2,0,0,0,13,Other Facility,0
+PID_0261,50,Male,0,0,1,0,7,Expired,0
+PID_0262,87,Male,0,0,0,0,3,Skilled Nursing Facility,0
+PID_0263,74,Male,1,0,1,0,6,Home,1
+PID_0264,49,Female,3,1,0,0,10,Other Facility,0
+PID_0265,52,Male,1,1,0,0,5,Home,0
+PID_0266,68,Male,2,0,1,0,10,Home,0
+PID_0267,84,Male,1,1,0,1,10,Skilled Nursing Facility,0
+PID_0268,77,Female,1,0,0,1,9,Home,1
+PID_0269,53,Male,3,1,0,0,8,Home,0
+PID_0270,39,Female,1,1,0,1,3,Skilled Nursing Facility,0
+PID_0271,60,Female,2,0,1,0,14,Home,1
+PID_0272,90,Female,0,0,0,0,9,Home,1
+PID_0273,72,Female,2,0,0,0,9,Home,1
+PID_0274,57,Female,1,1,0,0,2,Home,0
+PID_0275,30,Male,1,0,1,0,12,Home,1
+PID_0276,86,Male,0,0,1,0,8,Home,0
+PID_0277,35,Female,0,0,0,0,6,Home,0
+PID_0278,86,Female,1,0,1,0,7,Home,1
+PID_0279,75,Female,3,0,1,0,19,Home,1
+PID_0280,82,Male,2,0,0,1,7,Home,0
+PID_0281,32,Male,0,1,0,1,2,Home,1
+PID_0282,64,Female,1,1,1,0,16,Expired,0
+PID_0283,93,Male,0,0,0,0,7,Expired,0
+PID_0284,36,Male,3,0,1,1,12,Home,1
+PID_0285,79,Male,3,1,0,0,6,Home,0
+PID_0286,38,Female,2,1,0,1,6,Skilled Nursing Facility,0
+PID_0287,35,Male,1,1,0,0,10,Home,0
+PID_0288,20,Male,3,0,0,0,14,Home,0
+PID_0289,56,Female,3,0,0,0,11,Home,1
+PID_0290,27,Male,3,1,0,0,8,Home,0
+PID_0291,68,Male,3,1,0,0,10,Home,1
+PID_0292,29,Male,0,0,1,0,8,Expired,0
+PID_0293,73,Male,3,0,0,0,6,Home,1
+PID_0294,72,Male,1,0,1,0,7,Expired,0
+PID_0295,87,Male,1,1,1,0,11,Home,1
+PID_0296,65,Female,2,0,0,0,6,Home,1
+PID_0297,35,Male,5,0,0,0,8,Home,1
+PID_0298,27,Male,2,1,0,0,7,Home,0
+PID_0299,62,Female,1,0,1,0,5,Skilled Nursing Facility,0
+PID_0300,39,Other,2,0,0,0,10,Home,0
+PID_0301,67,Male,1,0,1,0,6,Other Facility,0
+PID_0302,63,Female,2,0,1,0,9,Other Facility,1
+PID_0303,76,Female,3,1,1,0,12,Home,1
+PID_0304,84,Female,2,0,0,0,3,Home,1
+PID_0305,80,Female,2,1,0,0,12,Skilled Nursing Facility,0
+PID_0306,41,Female,2,0,0,0,8,Other Facility,1
+PID_0307,22,Female,2,1,1,0,8,Home,1
+PID_0308,28,Female,0,1,0,0,5,Home,1
+PID_0309,35,Female,2,0,0,1,24,Home,0
+PID_0310,38,Female,2,0,1,0,7,Other Facility,0
+PID_0311,40,Male,2,0,0,0,3,Home,0
+PID_0312,29,Male,1,1,1,0,16,Home,1
+PID_0313,45,Male,2,0,1,1,2,Home,1
+PID_0314,27,Female,3,0,0,0,8,Home,1
+PID_0315,73,Female,4,0,0,0,11,Home,1
+PID_0316,35,Male,2,0,1,1,8,Home,0
+PID_0317,33,Male,4,0,1,1,6,Home,1
+PID_0318,20,Male,1,0,1,0,8,Home,1
+PID_0319,94,Male,2,0,1,1,2,Skilled Nursing Facility,0
+PID_0320,81,Female,0,0,0,0,18,Other Facility,0
+PID_0321,83,Female,2,0,0,0,8,Home,1
+PID_0322,53,Male,3,1,0,0,17,Home,1
+PID_0323,78,Female,4,1,1,0,6,Home,1
+PID_0324,35,Male,1,0,1,0,6,Expired,0
+PID_0325,74,Female,2,0,0,0,4,Home,1
+PID_0326,41,Female,1,0,0,0,9,Home,0
+PID_0327,35,Male,1,0,1,1,4,Home,0
+PID_0328,73,Female,1,0,0,0,4,Skilled Nursing Facility,1
+PID_0329,37,Male,2,0,1,0,5,Other Facility,0
+PID_0330,29,Female,1,0,0,1,5,Home,1
+PID_0331,53,Male,1,0,0,0,12,Home,0
+PID_0332,49,Male,1,1,0,0,11,Other Facility,0
+PID_0333,92,Female,1,0,1,1,8,Skilled Nursing Facility,1
+PID_0334,24,Female,0,0,1,0,10,Other Facility,1
+PID_0335,82,Male,4,1,0,0,6,Home,1
+PID_0336,46,Male,2,0,1,0,10,Skilled Nursing Facility,0
+PID_0337,88,Male,1,0,1,0,4,Home,0
+PID_0338,58,Female,0,1,1,1,8,Home,1
+PID_0339,36,Female,1,1,0,0,12,Home,1
+PID_0340,18,Male,2,0,0,0,3,Home,1
+PID_0341,89,Male,1,0,0,0,3,Home,1
+PID_0342,49,Female,2,1,0,0,14,Home,1
+PID_0343,78,Female,1,0,0,0,17,Home,0
+PID_0344,69,Male,2,0,1,0,2,Other Facility,1
+PID_0345,84,Female,2,1,0,0,7,Home,1
+PID_0346,51,Male,2,0,1,0,11,Home,0
+PID_0347,21,Male,1,0,0,1,6,Home,0
+PID_0348,44,Female,3,1,1,0,13,Home,0
+PID_0349,88,Female,1,0,0,0,2,Skilled Nursing Facility,0
+PID_0350,68,Male,3,0,0,1,12,Skilled Nursing Facility,0
+PID_0351,86,Female,3,1,0,0,4,Skilled Nursing Facility,1
+PID_0352,62,Female,3,1,1,0,13,Home,1
+PID_0353,61,Female,4,0,1,0,5,Home,1
+PID_0354,39,Female,3,1,0,0,7,Home,1
+PID_0355,67,Female,1,1,1,0,6,Other Facility,0
+PID_0356,18,Female,1,1,0,0,7,Home,0
+PID_0357,68,Male,0,1,0,1,7,Home,0
+PID_0358,21,Male,2,0,1,0,7,Skilled Nursing Facility,1
+PID_0359,49,Male,1,0,1,0,7,Skilled Nursing Facility,1
+PID_0360,84,Male,3,1,1,0,14,Skilled Nursing Facility,1
+PID_0361,51,Male,3,0,1,0,4,Skilled Nursing Facility,1
+PID_0362,87,Male,1,1,0,1,4,Home,1
+PID_0363,78,Female,1,0,0,0,11,Home,1
+PID_0364,25,Male,3,1,0,1,9,Other Facility,0
+PID_0365,25,Female,1,0,0,0,2,Home,0
+PID_0366,57,Female,6,0,1,1,6,Home,1
+PID_0367,59,Male,2,0,0,0,5,Skilled Nursing Facility,0
+PID_0368,82,Male,3,1,0,0,9,Home,1
+PID_0369,50,Female,1,0,1,0,14,Home,0
+PID_0370,73,Female,1,0,1,0,9,Home,0
+PID_0371,33,Female,3,0,0,0,9,Skilled Nursing Facility,1
+PID_0372,41,Male,4,0,1,0,4,Home,0
+PID_0373,69,Female,3,0,1,0,5,Other Facility,1
+PID_0374,88,Male,3,0,1,0,3,Home,1
+PID_0375,52,Male,3,1,1,0,15,Home,0
+PID_0376,21,Female,1,0,0,0,14,Home,0
+PID_0377,20,Male,1,0,0,0,2,Other Facility,0
+PID_0378,47,Female,1,0,1,1,10,Other Facility,0
+PID_0379,30,Female,1,1,0,0,4,Home,0
+PID_0380,49,Female,2,0,0,0,13,Home,0
+PID_0381,37,Male,6,0,1,0,8,Home,1
+PID_0382,26,Male,1,0,1,1,4,Skilled Nursing Facility,0
+PID_0383,19,Male,1,0,1,0,3,Home,1
+PID_0384,94,Other,0,1,1,1,7,Home,1
+PID_0385,26,Female,0,0,0,1,3,Home,0
+PID_0386,73,Female,3,0,0,0,4,Home,0
+PID_0387,59,Female,3,0,0,0,19,Skilled Nursing Facility,1
+PID_0388,70,Female,2,0,0,0,2,Home,0
+PID_0389,37,Female,2,0,0,1,5,Home,1
+PID_0390,89,Female,1,0,1,0,5,Home,1
+PID_0391,80,Female,3,1,1,1,4,Home,0
+PID_0392,38,Female,5,1,1,0,8,Home,1
+PID_0393,45,Male,2,1,1,0,11,Home,0
+PID_0394,41,Male,3,1,1,0,9,Home,1
+PID_0395,84,Male,1,0,1,0,14,Home,1
+PID_0396,43,Female,0,0,1,1,8,Skilled Nursing Facility,1
+PID_0397,90,Female,2,0,0,0,10,Home,1
+PID_0398,57,Female,0,0,0,0,10,Home,0
+PID_0399,65,Female,1,1,1,0,10,Home,1
+PID_0400,89,Other,5,0,0,0,4,Other Facility,0
+PID_0401,63,Male,2,0,0,0,7,Skilled Nursing Facility,1
+PID_0402,38,Female,0,0,1,0,8,Other Facility,0
+PID_0403,55,Female,2,0,1,0,10,Home,0
+PID_0404,93,Female,2,1,0,0,14,Home,1
+PID_0405,71,Female,3,0,1,0,2,Home,0
+PID_0406,34,Female,1,0,1,0,10,Home,1
+PID_0407,53,Male,3,1,1,1,16,Home,1
+PID_0408,28,Male,1,1,0,0,14,Home,0
+PID_0409,46,Male,4,1,1,0,9,Home,0
+PID_0410,89,Female,2,0,0,1,5,Home,1
+PID_0411,32,Female,0,1,1,0,7,Home,0
+PID_0412,40,Female,2,0,0,0,5,Skilled Nursing Facility,1
+PID_0413,54,Male,1,0,1,1,14,Home,1
+PID_0414,53,Male,3,1,1,1,10,Home,1
+PID_0415,80,Female,2,0,0,0,5,Home,1
+PID_0416,38,Male,1,0,1,0,10,Home,0
+PID_0417,60,Male,1,0,0,0,4,Home,1
+PID_0418,23,Female,1,0,1,0,8,Home,0
+PID_0419,44,Female,1,0,0,0,9,Home,0
+PID_0420,53,Female,0,0,1,0,6,Home,0
+PID_0421,41,Female,1,0,1,0,2,Other Facility,1
+PID_0422,94,Other,1,0,0,0,9,Skilled Nursing Facility,0
+PID_0423,55,Male,0,0,1,0,10,Home,1
+PID_0424,69,Male,1,0,0,1,6,Home,1
+PID_0425,43,Male,2,1,0,0,7,Home,1
+PID_0426,91,Male,1,1,1,0,6,Home,1
+PID_0427,52,Male,1,0,1,0,3,Home,0
+PID_0428,69,Male,2,0,1,0,11,Home,0
+PID_0429,27,Male,2,1,0,0,1,Home,0
+PID_0430,18,Male,2,0,1,0,9,Home,0
+PID_0431,24,Female,1,0,0,0,7,Other Facility,1
+PID_0432,18,Male,3,0,1,0,4,Home,0
+PID_0433,28,Male,2,1,1,0,6,Home,0
+PID_0434,62,Female,0,1,0,1,11,Home,0
+PID_0435,52,Female,1,1,0,0,18,Skilled Nursing Facility,0
+PID_0436,83,Female,2,0,0,1,9,Home,0
+PID_0437,32,Female,2,0,1,0,3,Home,0
+PID_0438,54,Male,2,1,1,0,5,Home,0
+PID_0439,35,Female,2,1,1,0,5,Skilled Nursing Facility,1
+PID_0440,69,Male,2,0,0,0,15,Other Facility,1
+PID_0441,82,Female,3,0,0,0,16,Home,1
+PID_0442,72,Male,1,1,0,1,8,Skilled Nursing Facility,0
+PID_0443,26,Male,2,1,0,0,17,Home,0
+PID_0444,19,Male,1,0,0,0,8,Home,0
+PID_0445,77,Female,0,1,0,0,2,Home,1
+PID_0446,62,Male,1,1,0,0,6,Home,0
+PID_0447,89,Female,0,0,0,0,9,Home,0
+PID_0448,18,Female,1,1,0,0,3,Home,1
+PID_0449,41,Female,1,1,1,1,13,Home,1
+PID_0450,82,Female,1,0,0,1,8,Expired,0
+PID_0451,35,Female,3,1,1,1,7,Skilled Nursing Facility,1
+PID_0452,19,Male,5,0,0,0,6,Home,0
+PID_0453,69,Female,3,0,0,0,6,Other Facility,0
+PID_0454,21,Male,4,1,0,0,9,Home,1
+PID_0455,19,Female,3,1,1,0,3,Home,1
+PID_0456,85,Female,4,0,0,0,6,Skilled Nursing Facility,1
+PID_0457,52,Male,2,0,0,0,10,Home,1
+PID_0458,93,Male,1,0,1,0,2,Home,1
+PID_0459,31,Male,1,0,1,0,4,Home,1
+PID_0460,52,Male,1,0,1,0,3,Other Facility,1
+PID_0461,28,Male,0,0,1,1,14,Home,0
+PID_0462,69,Male,0,1,0,0,5,Home,1
+PID_0463,19,Female,5,0,1,0,4,Home,1
+PID_0464,33,Female,4,0,0,0,3,Skilled Nursing Facility,1
+PID_0465,85,Other,2,0,1,0,4,Home,1
+PID_0466,47,Male,3,0,0,1,11,Home,1
+PID_0467,55,Male,1,0,0,1,10,Other Facility,1
+PID_0468,34,Female,1,0,1,0,11,Other Facility,1
+PID_0469,29,Female,5,0,1,0,7,Home,1
+PID_0470,84,Male,1,1,1,0,11,Home,1
+PID_0471,44,Female,1,1,0,0,15,Home,1
+PID_0472,81,Male,3,0,1,1,6,Other Facility,0
+PID_0473,34,Female,3,0,1,0,4,Other Facility,1
+PID_0474,49,Other,0,0,1,1,9,Home,1
+PID_0475,28,Male,5,1,0,0,5,Other Facility,1
+PID_0476,66,Female,2,1,0,0,17,Expired,0
+PID_0477,43,Female,1,0,0,1,13,Home,0
+PID_0478,40,Female,0,1,0,0,5,Home,0
+PID_0479,82,Male,1,0,1,0,8,Home,1
+PID_0480,41,Female,0,0,0,0,7,Home,1
+PID_0481,45,Female,0,0,1,1,11,Home,0
+PID_0482,83,Female,1,1,0,0,6,Home,1
+PID_0483,61,Male,0,0,1,0,6,Expired,0
+PID_0484,73,Female,1,0,0,0,15,Skilled Nursing Facility,0
+PID_0485,94,Male,3,0,1,0,11,Home,0
+PID_0486,20,Male,2,0,0,0,11,Home,1
+PID_0487,54,Male,3,0,1,0,3,Home,1
+PID_0488,36,Male,3,0,1,0,10,Skilled Nursing Facility,1
+PID_0489,60,Male,1,1,0,1,5,Home,0
+PID_0490,82,Male,0,0,0,0,16,Home,1
+PID_0491,92,Female,2,0,0,0,6,Home,1
+PID_0492,93,Female,3,1,0,0,16,Other Facility,1
+PID_0493,43,Female,4,1,1,0,3,Home,1
+PID_0494,42,Female,1,1,1,0,23,Home,0
+PID_0495,86,Male,1,0,1,0,6,Home,1
+PID_0496,75,Female,2,1,1,0,5,Home,1
+PID_0497,80,Male,3,0,1,0,9,Home,1
+PID_0498,94,Male,4,0,0,1,3,Home,1
+PID_0499,59,Female,4,0,1,1,7,Expired,0

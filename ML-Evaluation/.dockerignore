@@ -1,0 +1,41 @@
+# Virtual environment
+venv/
+.venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE/Editor specific files
+.vscode/
+.idea/
+*.iml
+
+# OS specific files
+.DS_Store
+Thumbs.db
+
+# Git files
+.git/
+.gitignore
+
+# Secrets - Should be injected via Azure, NOT copied into the image
+.env
+*.env
+
+# Docker files themselves (sometimes excluded)
+# Dockerfile
+# .dockerignore
+
+# Test files (if any)
+tests/
+*.test.py
+pytest.ini
+
+# Other build artifacts/local files
+*.log
+dist/
+build/
+*.egg-info/

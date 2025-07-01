@@ -1,0 +1,55 @@
+import spacy
+from collections import OrderedDict
+
+# Load spaCy model
+nlp = spacy.load("en_core_web_sm")
+
+# Count tokens
+def count_tokens(text):
+    return len(nlp(text))
+
+# Remove stopwords
+def remove_stopwords(text):
+    doc = nlp(text)
+    return " ".join([token.text for token in doc if not token.is_stop])
+
+# Deduplicate terms
+def deduplicate_keywords(text):
+    return " ".join(OrderedDict.fromkeys(text.split()))
+
+# Limit context window
+def limit_context_window(text, max_tokens):
+    return " ".join(text.split()[:max_tokens])
+
+# Filter keywords
+def keyword_filtering(text, allowed_terms):
+    return " ".join([word for word in text.split() if word in allowed_terms])
+
+# Full pipeline with logging
+def preprocess_query(query, max_tokens, allowed_terms):
+    print(f"Original Query: {query}")
+    print(f"Original Token Count: {count_tokens(query)}")
+
+    query = remove_stopwords(query)
+    print(f"After Removing Stopwords: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    query = deduplicate_keywords(query)
+    print(f"After Deduplication: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    query = limit_context_window(query, max_tokens)
+    print(f"After Limiting Context: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    query = keyword_filtering(query, allowed_terms)
+    print(f"After Keyword Filtering: {query}")
+    print(f"Token Count: {count_tokens(query)}")
+
+    return query
+
+# Example usage
+query = "This is an example search query with some repeated repeated words and stopwords."
+allowed_terms = ["example", "search", "query", "repeated", "words"]
+cleaned = preprocess_query(query, max_tokens=50, allowed_terms=allowed_terms)
+print("Final Cleaned Query:", cleaned)
