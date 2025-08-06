@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Data Validation Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            min-height: 100vh;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+        .confidence-high { border-left: 4px solid #10b981; }
+        .confidence-medium { border-left: 4px solid #f59e0b; }
+        .confidence-low { border-left: 4px solid #ef4444; }
+        .token-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: rgba(139, 92, 246, 0.15);
+            color: #a78bfa;
+        }
+        .token-display {
+            background-color: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+        }
+        .loader {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid #ffffff;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 2, 0, 0.8);
+        }
+        .modal-content {
+            background-color: #1f2937;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close {
+            color: #9ca3af;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="gradient-bg text-white">
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-white mb-2">Hotel Data Validation</h1>
+            <p class="text-xl text-gray-300">Intelligent validation and enrichment of hotel data</p>
+        </div>
+
+        <!-- Main Form -->
+        <div id="form-section" class="bg-gray-800 rounded-xl shadow-xl p-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label for="hotel_companies" class="block text-sm font-medium text-gray-300 mb-2">Select Hotel Brands</label>
+                    <select id="hotel_companies" multiple class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:border-blue-500 focus:outline-none h-32">
+                        <option value="Marriott">Marriott</option>
+                        <option value="Hilton">Hilton</option>
+                        <option value="Hyatt">Hyatt</option>
+                        <option value="IHG">IHG (InterContinental)</option>
+                        <option value="Wyndham">Wyndham</option>
+                        <option value="Choice">Choice Hotels</option>
+                        <option value="Accor">Accor</option>
+                        <option value="Best Western">Best Western</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="location" class="block text-sm font-medium text-gray-300 mb-2">Location</label>
+                    <input type="text" id="location" placeholder="e.g., New York, NY or CA" class="w-full bg-gray-700 border border-gray-600 rounded-md px-3 py-2 text-white focus:border-blue-500 focus:outline-none">
+                    <div class="mt-4">
+                        <button id="process-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-md transition-colors duration-200">
+                            Validate Hotel Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="hidden text-center py-12">
+            <div class="loader mx-auto mb-4"></div>
+            <p class="text-gray-300 text-lg">Processing hotel data...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-section" class="hidden">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-semibold text-white">Validation Results</h2>
+                <button id="reset-btn" class="bg-gray-600 hover:bg-gray-700 text-white font-medium py-2 px-4 rounded-md transition-colors duration-200">
+                    New Search
+                </button>
+            </div>
+            <div id="results-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <!-- Results will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hotel Details Modal -->
+    <div id="hotel-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-content">
+                <!-- Modal content will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const processBtn = document.getElementById('process-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const loadingDiv = document.getElementById('loading');
+            const formSection = document.getElementById('form-section');
+            const resultsSection = document.getElementById('results-section');
+            const resultsGrid = document.getElementById('results-grid');
+            const modal = document.getElementById('hotel-modal');
+            const closeModal = document.getElementsByClassName('close')[0];
+
+            // Initialize form
+            document.getElementById('hotel_companies').selectedIndex = -1;
+            document.getElementById('location').value = 'New York, NY';
+
+            // Process data
+            processBtn.addEventListener('click', async () => {
+                const selectedOptions = Array.from(document.getElementById('hotel_companies').selectedOptions);
+                const selectedCompanies = selectedOptions.map(option => option.value);
+                
+                if (selectedCompanies.length === 0) {
+                    alert('Please select at least one hotel brand');
+                    return;
+                }
+
+                const location = document.getElementById('location').value.trim();
+                if (!location) {
+                    alert('Please enter a location');
+                    return;
+                }
+
+                showLoading();
+                
+                try {
+                    const response = await fetch('/process', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            companies: selectedCompanies,
+                            location: location
+                        })
+                    });
+
+                    const data = await response.json();
+                    
+                    if (response.ok) {
+                        showResults(data);
+                    } else {
+                        throw new Error(data.error || 'Processing failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Error: ' + error.message);
+                    showForm();
+                }
+            });
+
+            // Reset form
+            resetBtn.addEventListener('click', () => {
+                showForm();
+                resultsGrid.innerHTML = '';
+            });
+
+            // Modal controls
+            closeModal.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            window.addEventListener('click', (event) => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            function showLoading() {
+                formSection.style.display = 'none';
+                resultsSection.style.display = 'none';
+                loadingDiv.style.display = 'block';
+            }
+
+            function showForm() {
+                formSection.style.display = 'block';
+                resultsSection.style.display = 'none';
+                loadingDiv.style.display = 'none';
+            }
+
+            function showResults(data) {
+                formSection.style.display = 'none';
+                loadingDiv.style.display = 'none';
+                resultsSection.style.display = 'block';
+
+                if (data.length === 0) {
+                    resultsGrid.innerHTML = '<div class="col-span-full text-center text-gray-400 py-12">No hotels found for the selected criteria.</div>';
+                    return;
+                }
+
+                // Calculate total token usage
+                let totalInputTokens = 0;
+                let totalOutputTokens = 0;
+                data.forEach(hotel => {
+                    if (hotel.token_usage) {
+                        totalInputTokens += hotel.token_usage.input_tokens || 0;
+                        totalOutputTokens += hotel.token_usage.output_tokens || 0;
+                    }
+                });
+                
+                const totalTokens = totalInputTokens + totalOutputTokens;
+                
+                // Add token summary before the results grid
+                if (totalTokens > 0) {
+                    const tokenSummary = document.createElement('div');
+                    tokenSummary.className = 'mb-6 token-display';
+                    tokenSummary.innerHTML = `
+                        <h3 class="text-lg font-semibold text-white mb-3">Total Token Usage</h3>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div>
+                                <div class="text-sm text-purple-400 font-medium">Input</div>
+                                <div class="text-xl font-bold text-purple-300">${totalInputTokens.toLocaleString()}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-indigo-400 font-medium">Output</div>
+                                <div class="text-xl font-bold text-indigo-300">${totalOutputTokens.toLocaleString()}</div>
+                            </div>
+                            <div>
+                                <div class="text-sm text-blue-400 font-medium">Total</div>
+                                <div class="text-xl font-bold text-blue-300">${totalTokens.toLocaleString()}</div>
+                            </div>
+                        </div>
+                    `;
+                    resultsSection.insertBefore(tokenSummary, resultsGrid);
+                }
+
+                resultsGrid.innerHTML = '';
+                data.forEach(renderHotelCard);
+            }
+
+            function renderHotelCard(hotel) {
+                const confidence = hotel.confidence_score || {};
+                const score = confidence.confidence_score || 0;
+                const reviewNeeded = confidence.human_review_needed || false;
+                
+                // Determine confidence level styling
+                let confidenceClass = 'confidence-low';
+                let confidenceText = 'Low';
+                let confidenceColor = 'text-red-400';
+                
+                if (score >= 0.9) {
+                    confidenceClass = 'confidence-high';
+                    confidenceText = 'High';
+                    confidenceColor = 'text-green-400';
+                } else if (score >= 0.8) {
+                    confidenceClass = 'confidence-medium';
+                    confidenceText = 'Medium';
+                    confidenceColor = 'text-yellow-400';
+                }
+
+                const card = document.createElement('div');
+                card.className = `bg-gray-800 rounded-lg p-6 cursor-pointer transition-all duration-200 card-hover ${confidenceClass}`;
+                
+                const name = hotel.clean_record?.name || 'Unknown Hotel';
+                const address = hotel.clean_record?.address || 'Address not available';
+                const discrepancies = hotel.data_discrepancies || 'None';
+                
+                // Token usage information
+                const tokenUsage = hotel.token_usage || { input_tokens: 0, output_tokens: 0 };
+                const totalTokens = (tokenUsage.input_tokens || 0) + (tokenUsage.output_tokens || 0);
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-lg font-semibold text-white truncate">${name}</h3>
+                        <div class="text-right">
+                            <div class="text-sm font-medium ${confidenceColor}">${confidenceText}</div>
+                            <div class="text-xs text-gray-400">${Math.round(score * 100)}%</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-400 mb-3 line-clamp-2">${address}</p>
+                    
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-2">
+                            <span class="text-xs ${reviewNeeded ? 'text-red-400' : 'text-green-400'}">
+                                ${reviewNeeded ? '⚠ Review Required' : '✓ Validated'}
+                            </span>
+                            ${totalTokens > 0 ? `<span class="token-badge ml-2">🔢 ${totalTokens.toLocaleString()} tokens</span>` : ''}
+                        </div>
+                        <button class="text-blue-400 hover:text-blue-300 text-sm font-medium">
+                            View Details →
+                        </button>
+                    </div>
+                `;
+
+                card.addEventListener('click', () => showHotelDetails(hotel));
+                resultsGrid.appendChild(card);
+            }
+
+            function showHotelDetails(hotel) {
+                const confidence = hotel.confidence_score || {};
+                const modalContent = document.getElementById('modal-content');
+                
+                const reasoning = confidence.confidence_reasoning || [];
+                const recommendation = confidence.recommendation || 'No recommendation available';
+                const discrepancies = hotel.data_discrepancies || 'None';
+                
+                modalContent.innerHTML = `
+                    <h2 class="text-2xl font-bold text-white mb-4">${hotel.clean_record?.name || 'Hotel Details'}</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-3">Hotel Information</h3>
+                            <div class="space-y-2 text-sm">
+                                <p><span class="text-gray-400">Address:</span> ${hotel.clean_record?.address || 'N/A'}</p>
+                                <p><span class="text-gray-400">Location:</span> ${hotel.clean_record?.latitude || 'N/A'}, ${hotel.clean_record?.longitude || 'N/A'}</p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-3">Confidence Analysis</h3>
+                            <div class="space-y-2 text-sm">
+                                <p><span class="text-gray-400">Score:</span> ${Math.round((confidence.confidence_score || 0) * 100)}%</p>
+                                <p><span class="text-gray-400">Review Needed:</span> ${confidence.human_review_needed ? 'Yes' : 'No'}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    ${hotel.token_usage ? `
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">Token Usage</h3>
+                        <div class="token-display">
+                            <div class="grid grid-cols-3 gap-3">
+                                <div>
+                                    <div class="text-sm text-purple-400 font-medium">Input</div>
+                                    <div class="text-xl font-bold text-purple-300">${(hotel.token_usage.input_tokens || 0).toLocaleString()}</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-indigo-400 font-medium">Output</div>
+                                    <div class="text-xl font-bold text-indigo-300">${(hotel.token_usage.output_tokens || 0).toLocaleString()}</div>
+                                </div>
+                                <div>
+                                    <div class="text-sm text-blue-400 font-medium">Total</div>
+                                    <div class="text-xl font-bold text-blue-300">
+                                        ${((hotel.token_usage.input_tokens || 0) + (hotel.token_usage.output_tokens || 0)).toLocaleString()}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">Confidence Reasoning</h3>
+                        <div class="bg-gray-700 rounded-md p-4">
+                            ${reasoning.length > 0 ? 
+                                reasoning.map(reason => `<p class="text-sm text-gray-300 mb-2">• ${reason}</p>`).join('') :
+                                '<p class="text-sm text-gray-400">No specific reasoning provided</p>'
+                            }
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">Recommendation</h3>
+                        <div class="bg-blue-900 bg-opacity-50 rounded-md p-4">
+                            <p class="text-sm text-blue-200">${recommendation}</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">Data Discrepancies</h3>
+                        <div class="bg-gray-700 rounded-md p-4">
+                            <pre class="text-sm text-gray-300 whitespace-pre-wrap">${discrepancies}</pre>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">Raw Data</h3>
+                        <div class="bg-gray-900 rounded-md p-4 max-h-64 overflow-y-auto">
+                            <pre class="text-xs text-gray-300 whitespace-pre-wrap">${JSON.stringify(hotel, null, 2)}</pre>
+                        </div>
+                    </div>
+                `;
+                
+                modal.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

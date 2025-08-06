@@ -1,0 +1,60 @@
+{
+  "name": "hotel-data-validation",
+  "version": "1.0.0",
+  "description": "Multi-Agent Data Pipeline for Hotel Processing",
+  "homepage": ".",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "start-backend": "cd backend && python -m venv venv && venv\\Scripts\\activate && pip install -r ../requirements.txt && flask --app ../main run",
+    "start-backend-unix": "cd backend && python -m venv venv && source venv/bin/activate && pip install -r ../requirements.txt && flask --app ../main run",
+    "start-all": "concurrently \"npm run start-backend\" \"npm start\"",
+    "start-all-unix": "concurrently \"npm run start-backend-unix\" \"npm start\""
+  },
+  "dependencies": {
+    "@azure/cosmos": "^3.17.3",
+    "@azure/identity": "^3.2.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "buffer": "^6.0.3",
+    "crypto-browserify": "^3.12.1",
+    "dotenv": "^16.0.3",
+    "os-browserify": "^0.3.0",
+    "path-browserify": "^1.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "stream-browserify": "^3.0.0",
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.1",
+    "postcss": "^8.4.21",
+    "react-app-rewired": "^2.2.1",
+    "tailwindcss": "^3.3.1"
+  }
+}

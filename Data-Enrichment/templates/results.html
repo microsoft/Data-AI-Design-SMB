@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HopSkip - Agent Results Review</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-8">
+            <h1 class="text-3xl font-bold text-gray-900">HopSkip Agent Results Review</h1>
+            <div class="mt-2">
+                <a href="/" class="text-blue-600 hover:text-blue-800">← Back to Workflow</a>
+            </div>
+        </header>
+
+        <div class="bg-white shadow rounded-lg overflow-hidden" id="app">
+            <div class="flex flex-col h-full" id="results-container">
+                <div class="p-4" v-if="loading">Loading agent results...</div>
+                <div class="p-4 text-red-600" v-if="error">{{ "{{" }} error {{ "}}" }}</div>
+                <div class="p-4" v-if="!loading && !error && Object.keys(results).length === 0">
+                    <p class="text-lg">No agent results available. Run some tasks first.</p>
+                    <p class="mt-2">
+                        <a href="/" class="text-blue-600 hover:underline">Go back to the main page</a> to run some hotel validation tasks.
+                    </p>
+                </div>
+                
+                <!-- Processing Runs Summary View (Initial View) -->
+                <div class="p-4" v-if="!loading && !error && Object.keys(processingRuns).length > 0 && !selectedRunId">
+                    <h2 class="text-xl font-semibold mb-4">Processing Runs</h2>
+                    
+                    <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-300">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Process ID</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Date/Time</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Location</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Hotel Chains</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Hotels Processed</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 bg-white">
+                                <tr v-for="(run, runId) in processingRuns" :key="runId">
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">{{ "{{" }} runId.split('-')[0] {{ "}}" }}</td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ "{{" }} run.timestamp {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ "{{" }} run.location {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ "{{" }} run.chains.join(', ') {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ "{{" }} run.hotelCount {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm">
+                                        <span 
+                                            :class="`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                                ${run.hasErrors ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`"
+                                        >
+                                            {{ "{{" }} run.hasErrors ? 'Errors' : 'Success' {{ "}}" }}
+                                        </span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <button 
+                                            @click="selectRun(runId)" 
+                                            class="text-blue-600 hover:text-blue-900 font-medium"
+                                        >
+                                            View Hotels
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Hotels in Run View -->
+                <div class="p-4" v-if="selectedRunId">
+                    <div class="flex justify-between items-center mb-6">
+                        <div>
+                            <h2 class="text-xl font-semibold">
+                                {{ "{{" }} processingRuns[selectedRunId].location {{ "}}" }} - 
+                                {{ "{{" }} processingRuns[selectedRunId].chains.join(', ') {{ "}}" }}
+                            </h2>
+                            <p class="text-sm text-gray-500">
+                                {{ "{{" }} processingRuns[selectedRunId].timestamp {{ "}}" }} | 
+                                {{ "{{" }} processingRuns[selectedRunId].hotelCount {{ "}}" }} hotels processed
+                            </p>
+                        </div>
+                        <button 
+                            @click="selectedRunId = null; selectedHotelId = null;" 
+                            class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-gray-800"
+                        >
+                            Back to Runs
+                        </button>
+                    </div>
+                    
+                    <!-- Hotel List View -->
+                    <div v-if="!selectedHotelId" class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                        <table class="min-w-full divide-y divide-gray-300">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900">Hotel Name</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Chain</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Location</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Confidence Score</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Status</th>
+                                    <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 bg-white">
+                                <tr v-for="(hotel, hotelId) in getHotelsInRun(selectedRunId)" :key="hotelId">
+                                    <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
+                                        {{ "{{" }} getHotelName(hotelId) {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ "{{" }} getHotelChain(hotelId) {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        {{ "{{" }} getHotelLocation(hotelId) {{ "}}" }}
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <div class="flex items-center" v-if="getHotelConfidenceScore(hotelId)">
+                                            <div class="w-24 bg-gray-200 rounded-full h-2.5">
+                                                <div 
+                                                    class="bg-blue-600 h-2.5 rounded-full" 
+                                                    :style="{ width: `${getHotelConfidenceScore(hotelId)}%` }"
+                                                ></div>
+                                            </div>
+                                            <span class="ml-2 text-xs font-semibold">
+                                                {{ "{{" }} getHotelConfidenceScore(hotelId) {{ "}}" }}%
+                                            </span>
+                                        </div>
+                                        <span v-else>-</span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm">
+                                        <span 
+                                            :class="`px-2 inline-flex text-xs leading-5 font-semibold rounded-full
+                                                ${hasHotelError(hotelId) ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`"
+                                        >
+                                            {{ "{{" }} hasHotelError(hotelId) ? 'Error' : 'Success' {{ "}}" }}
+                                        </span>
+                                    </td>
+                                    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                                        <button 
+                                            @click="selectHotel(hotelId)" 
+                                            class="text-blue-600 hover:text-blue-900 font-medium"
+                                        >
+                                            View Details
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Hotel Detail View -->
+                    <div v-if="selectedHotelId">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-lg font-semibold">{{ "{{" }} getHotelName(selectedHotelId) {{ "}}" }}</h3>
+                            <button 
+                                @click="selectedHotelId = null" 
+                                class="px-3 py-1 bg-gray-200 hover:bg-gray-300 rounded text-gray-800"
+                            >
+                                Back to Hotels
+                            </button>
+                        </div>
+                        
+                        <div v-for="(agentResult, agentName) in results[selectedHotelId]" :key="agentName" class="mb-6 border rounded-lg overflow-hidden">
+                            <div class="bg-gray-100 p-3 font-medium border-b flex justify-between items-center">
+                                <div>
+                                    {{ "{{" }} agentName {{ "}}" }}
+                                    <span class="text-sm text-gray-500 ml-2" v-if="agentResult.timestamp">
+                                        {{ "{{" }} new Date(agentResult.timestamp).toLocaleString() {{ "}}" }}
+                                    </span>
+                                </div>
+                                <div>
+                                    <span 
+                                        :class="`px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full
+                                            ${isAgentResultError(agentResult) ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'}`"
+                                    >
+                                        {{ "{{" }} isAgentResultError(agentResult) ? 'Error' : 'Success' {{ "}}" }}
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <!-- Error state -->
+                            <div v-if="isAgentResultError(agentResult)" class="p-4 bg-red-50 text-red-700">
+                                <p class="font-medium">Error: {{ "{{" }} agentResult.result.error {{ "}}" }}</p>
+                                <p v-if="agentResult.result.details" class="mt-2">{{ "{{" }} agentResult.result.details {{ "}}" }}</p>
+                            </div>
+                            
+                            <!-- Success state with discrepancies -->
+                            <div v-else-if="agentResult.result && agentResult.result.discrepancy_summary" class="p-4">
+                                <div class="mb-4">
+                                    <h3 class="font-medium mb-2">Discrepancies Found:</h3>
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        {{ "{{" }} agentResult.result.discrepancy_summary {{ "}}" }}
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <h3 class="font-medium mb-2">Confidence Score:</h3>
+                                    <div class="bg-blue-50 p-3 rounded">
+                                        <div v-if="agentResult.result.confidence_score">
+                                            <div class="flex items-center">
+                                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                                    <div 
+                                                        class="bg-blue-600 h-2.5 rounded-full" 
+                                                        :style="{ width: `${getConfidenceScorePercentage(agentResult.result.confidence_score)}%` }"
+                                                    ></div>
+                                                </div>
+                                                <span class="ml-2 font-bold">
+                                                    {{ "{{" }} getConfidenceScorePercentage(agentResult.result.confidence_score) {{ "}}" }}%
+                                                </span>
+                                            </div>
+                                            <div class="mt-2 text-sm" v-if="getConfidenceExplanation(agentResult.result)">
+                                                <div v-if="typeof getConfidenceExplanation(agentResult.result) === 'string'">
+                                                    {{ "{{" }} getConfidenceExplanation(agentResult.result) {{ "}}" }}
+                                                </div>
+                                                <ul v-else>
+                                                    <li v-for="reason in getConfidenceExplanation(agentResult.result)" class="list-disc ml-5 mb-1">
+                                                        {{ "{{" }} reason {{ "}}" }}
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div v-else>
+                                            No confidence score available
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Expandable sections for data -->
+                                <div class="mb-4">
+                                    <button 
+                                        @click="toggleSection('cleanRecord')" 
+                                        class="flex justify-between items-center w-full p-3 bg-gray-50 hover:bg-gray-100 rounded"
+                                    >
+                                        <span class="font-medium">Clean Record</span>
+                                        <span>{{ "{{" }} expandedSections.cleanRecord ? '▼' : '▶' {{ "}}" }}</span>
+                                    </button>
+                                    <div v-if="expandedSections.cleanRecord" class="mt-2">
+                                        <pre class="bg-gray-50 p-3 rounded overflow-auto max-h-80">{{ "{{" }} JSON.stringify(agentResult.result.clean_record, null, 2) {{ "}}" }}</pre>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <button 
+                                        @click="toggleSection('originalRecord')" 
+                                        class="flex justify-between items-center w-full p-3 bg-gray-50 hover:bg-gray-100 rounded"
+                                    >
+                                        <span class="font-medium">Original Record</span>
+                                        <span>{{ "{{" }} expandedSections.originalRecord ? '▼' : '▶' {{ "}}" }}</span>
+                                    </button>
+                                    <div v-if="expandedSections.originalRecord" class="mt-2">
+                                        <pre class="bg-gray-50 p-3 rounded overflow-auto max-h-80">{{ "{{" }} JSON.stringify(agentResult.result.original_record, null, 2) {{ "}}" }}</pre>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Generic result display -->
+                            <pre v-else class="p-4 overflow-auto max-h-96 bg-gray-50">{{ "{{" }} JSON.stringify(agentResult.result, null, 2) {{ "}}" }}</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                results: {},
+                processingRuns: {},
+                selectedRunId: null,
+                selectedHotelId: null,
+                loading: true,
+                error: null,
+                expandedSections: {
+                    cleanRecord: false,
+                    originalRecord: false
+                }
+            },
+            mounted() {
+                this.fetchResults();
+                // Set up polling to refresh results every 5 seconds
+                setInterval(this.fetchResults, 5000);
+            },
+            methods: {
+                fetchResults() {
+                    this.loading = true;
+                    axios.get('/api/agent-results')
+                        .then(response => {
+                            console.log('API Response:', response.data);
+                            this.results = response.data;
+                            
+                            // Process the results into runs
+                            this.processRunsFromResults();
+                            
+                            if (Object.keys(this.results).length === 0) {
+                                this.error = "No agent results available. Run some tasks first.";
+                            } else {
+                                this.error = null;
+                            }
+                            
+                            this.loading = false;
+                        })
+                        .catch(err => {
+                            this.error = 'Failed to fetch agent results: ' + err.message;
+                            this.loading = false;
+                            console.error(err);
+                        });
+                },
+                
+                processRunsFromResults() {
+                    // This function processes raw results into the processingRuns format
+                    // Group tasks by their process ID instead of timestamp
+                    
+                    // Reset the processingRuns object
+                    this.processingRuns = {};
+                    
+                    // For each task in the results
+                    for (const taskId in this.results) {
+                        if (taskId === "test_entry") continue; // Skip test entry
+                        
+                        const taskAgents = this.results[taskId];
+                        let plannerAgent = null;
+                        
+                        // Find the PlannerAgent result for this task
+                        if (taskAgents.PlannerAgent) {
+                            plannerAgent = taskAgents.PlannerAgent;
+                        }
+                        
+                        if (!plannerAgent) continue; // Skip if no planner agent data
+                        
+                        // Extract process ID from task ID or create one
+                        // Format: PROCESS-TASKID (e.g., "P12345-1", "P12345-2")
+                        let processId;
+                        if (taskId.includes('-')) {
+                            // If the task ID already has a process ID format
+                            processId = taskId.split('-')[0];
+                        } else {
+                            // Use location and chains as process ID key
+                            let location = "Unknown";
+                            let chain = "Unknown";
+                            
+                            if (plannerAgent.result && plannerAgent.result.original_record) {
+                                const record = plannerAgent.result.original_record;
+                                
+                                // Try to extract location
+                                if (record.city && record.state) {
+                                    location = `${record.city}, ${record.state}`;
+                                } else if (record.city) {
+                                    location = record.city;
+                                } else if (record.state) {
+                                    location = record.state;
+                                }
+                                
+                                // Try to extract chain
+                                if (record.brand) {
+                                    chain = record.brand;
+                                } else if (record.brandId) {
+                                    chain = record.brandId;
+                                } else if (record.chain) {
+                                    chain = record.chain;
+                                } else if (record.chainId) {
+                                    chain = record.chainId;
+                                }
+                            }
+                            
+                            // Get timestamp to ensure uniqueness
+                            const timestamp = plannerAgent.timestamp ? new Date(plannerAgent.timestamp) : new Date();
+                            const dateKey = timestamp.toISOString().split('T')[0]; // YYYY-MM-DD
+                            
+                            // Create process ID using location, chain, and date
+                            // Normalize to avoid special characters
+                            const locationKey = location.replace(/[^a-zA-Z0-9]/g, '').substring(0, 10);
+                            const chainKey = chain.replace(/[^a-zA-Z0-9]/g, '').substring(0, 10);
+                            processId = `P${locationKey}-${chainKey}-${dateKey}`;
+                        }
+                        
+                        // Get the timestamp for display
+                        const timestamp = plannerAgent.timestamp ? new Date(plannerAgent.timestamp) : new Date();
+                        const displayTimestamp = timestamp.toLocaleString();
+                        
+                        // Extract location and hotel chain from the hotel data
+                        let location = "Unknown";
+                        let chain = "Unknown";
+                        
+                        if (plannerAgent.result && plannerAgent.result.original_record) {
+                            const record = plannerAgent.result.original_record;
+                            
+                            // Try to extract location
+                            if (record.city && record.state) {
+                                location = `${record.city}, ${record.state}`;
+                            } else if (record.city) {
+                                location = record.city;
+                            } else if (record.state) {
+                                location = record.state;
+                            } else if (record.address) {
+                                location = record.address;
+                            }
+                            
+                            // Try to extract chain
+                            if (record.brand) {
+                                chain = record.brand;
+                            } else if (record.brandId) {
+                                chain = record.brandId;
+                            } else if (record.chain) {
+                                chain = record.chain;
+                            } else if (record.chainId) {
+                                chain = record.chainId;
+                            }
+                        }
+                        
+                        // Create a unique run ID that combines process ID and timestamp
+                        const runId = `${processId}-${timestamp.getTime()}`;
+                        
+                        // Create or update the run
+                        if (!this.processingRuns[runId]) {
+                            this.processingRuns[runId] = {
+                                timestamp: displayTimestamp,
+                                location: location,
+                                chains: [chain],
+                                hotelCount: 1,
+                                hotels: [taskId],
+                                hasErrors: this.hasError(taskId),
+                                processId: processId
+                            };
+                        } else {
+                            // Update existing run
+                            const run = this.processingRuns[runId];
+                            run.hotelCount++;
+                            run.hotels.push(taskId);
+                            
+                            // Add the chain if not already included
+                            if (!run.chains.includes(chain)) {
+                                run.chains.push(chain);
+                            }
+                            
+                            // Update the location if this one is more specific
+                            if (location !== "Unknown" && run.location === "Unknown") {
+                                run.location = location;
+                            }
+                            
+                            // Update error status
+                            if (this.hasError(taskId)) {
+                                run.hasErrors = true;
+                            }
+                        }
+                    }
+                    
+                    // Group runs by process ID to collapse multiple runs from the same process
+                    const groupedRuns = {};
+                    
+                    for (const runId in this.processingRuns) {
+                        const run = this.processingRuns[runId];
+                        const processId = run.processId;
+                        
+                        if (!groupedRuns[processId]) {
+                            // First occurrence of this process ID
+                            groupedRuns[processId] = run;
+                        } else {
+                            // Merge with existing run for this process ID
+                            const existingRun = groupedRuns[processId];
+                            
+                            // Combine hotel lists
+                            run.hotels.forEach(hotelId => {
+                                if (!existingRun.hotels.includes(hotelId)) {
+                                    existingRun.hotels.push(hotelId);
+                                    existingRun.hotelCount++;
+                                }
+                            });
+                            
+                            // Combine chains
+                            run.chains.forEach(chain => {
+                                if (!existingRun.chains.includes(chain)) {
+                                    existingRun.chains.push(chain);
+                                }
+                            });
+                            
+                            // Update error status
+                            if (run.hasErrors) {
+                                existingRun.hasErrors = true;
+                            }
+                            
+                            // Use the most recent timestamp
+                            const runTime = new Date(run.timestamp);
+                            const existingTime = new Date(existingRun.timestamp);
+                            
+                            if (runTime > existingTime) {
+                                existingRun.timestamp = run.timestamp;
+                            }
+                        }
+                    }
+                    
+                    // Replace processingRuns with the grouped version
+                    this.processingRuns = {};
+                    for (const processId in groupedRuns) {
+                        this.processingRuns[processId] = groupedRuns[processId];
+                    }
+                },
+                
+                selectRun(runId) {
+                    this.selectedRunId = runId;
+                    this.selectedHotelId = null;
+                },
+                
+                selectHotel(hotelId) {
+                    this.selectedHotelId = hotelId;
+                },
+                
+                getHotelsInRun(runId) {
+                    if (!this.processingRuns[runId]) return [];
+                    
+                    // Create an object with hotel IDs as keys
+                    const hotelIds = this.processingRuns[runId].hotels;
+                    const hotels = {};
+                    
+                    hotelIds.forEach(id => {
+                        hotels[id] = this.results[id];
+                    });
+                    
+                    return hotels;
+                },
+                
+                getHotelName(hotelId) {
+                    if (!hotelId || !this.results[hotelId]) return 'Unknown Hotel';
+                    
+                    // If the hotel has a name in the results, use it
+                    const hotelAgents = this.results[hotelId];
+                    if (hotelAgents.PlannerAgent && hotelAgents.PlannerAgent.result) {
+                        const hotelData = hotelAgents.PlannerAgent.result.clean_record || 
+                                         hotelAgents.PlannerAgent.result.original_record;
+                        
+                        if (hotelData && hotelData.name) {
+                            return hotelData.name;
+                        }
+                    }
+                    
+                    return `Hotel ${hotelId}`;
+                },
+                
+                getHotelChain(hotelId) {
+                    if (!hotelId || !this.results[hotelId]) return '-';
+                    
+                    const hotelAgents = this.results[hotelId];
+                    if (hotelAgents.PlannerAgent && hotelAgents.PlannerAgent.result) {
+                        const record = hotelAgents.PlannerAgent.result.original_record || 
+                                      hotelAgents.PlannerAgent.result.clean_record;
+                        
+                        if (record) {
+                            if (record.brand) return record.brand;
+                            if (record.brandId) return record.brandId;
+                            if (record.chain) return record.chain;
+                            if (record.chainId) return record.chainId;
+                        }
+                    }
+                    
+                    return '-';
+                },
+                
+                getHotelLocation(hotelId) {
+                    if (!hotelId || !this.results[hotelId]) return '-';
+                    
+                    const hotelAgents = this.results[hotelId];
+                    if (hotelAgents.PlannerAgent && hotelAgents.PlannerAgent.result) {
+                        const record = hotelAgents.PlannerAgent.result.clean_record || 
+                                      hotelAgents.PlannerAgent.result.original_record;
+                        
+                        if (record) {
+                            if (record.city && record.state) return `${record.city}, ${record.state}`;
+                            if (record.city) return record.city;
+                            if (record.state) return record.state;
+                            if (record.address) return record.address;
+                        }
+                    }
+                    
+                    return '-';
+                },
+                
+                getHotelConfidenceScore(hotelId) {
+                    if (!hotelId || !this.results[hotelId]) return 0;
+                    
+                    const hotelAgents = this.results[hotelId];
+                    if (hotelAgents.PlannerAgent && hotelAgents.PlannerAgent.result) {
+                        const result = hotelAgents.PlannerAgent.result;
+                        
+                        if (result.confidence_score) {
+                            return this.getConfidenceScorePercentage(result.confidence_score);
+                        }
+                    }
+                    
+                    return 0;
+                },
+                
+                getLatestProcessingTime(taskId) {
+                    const taskAgents = this.results[taskId];
+                    if (!taskAgents) return 'Unknown';
+                    
+                    // Find the most recent timestamp
+                    let latestTimestamp = null;
+                    for (const agentName in taskAgents) {
+                        const timestamp = taskAgents[agentName].timestamp;
+                        if (timestamp && (!latestTimestamp || timestamp > latestTimestamp)) {
+                            latestTimestamp = timestamp;
+                        }
+                    }
+                    
+                    return latestTimestamp ? new Date(latestTimestamp).toLocaleString() : 'Unknown';
+                },
+                
+                hasError(taskId) {
+                    const taskAgents = this.results[taskId];
+                    if (!taskAgents) return false;
+                    
+                    // Check if any agent has an error
+                    for (const agentName in taskAgents) {
+                        if (this.isAgentResultError(taskAgents[agentName])) {
+                            return true;
+                        }
+                    }
+                    
+                    return false;
+                },
+                
+                hasHotelError(hotelId) {
+                    return this.hasError(hotelId);
+                },
+                
+                isAgentResultError(agentResult) {
+                    return agentResult && 
+                           agentResult.result && 
+                           agentResult.result.error;
+                },
+                
+                getConfidenceScorePercentage(confidenceScore) {
+                    if (!confidenceScore) return 0;
+                    
+                    // Handle both object and number formats
+                    const score = typeof confidenceScore === 'object' ? 
+                                 (confidenceScore.overall_score || confidenceScore.confidence_score || 0) : 
+                                 confidenceScore;
+                                 
+                    return Math.round(score * 100);
+                },
+                
+                getConfidenceExplanation(result) {
+                    if (!result) return null;
+                    
+                    if (result.confidence_score && result.confidence_score.explanation) {
+                        return result.confidence_score.explanation;
+                    }
+                    
+                    if (result.confidence_reasoning) {
+                        return result.confidence_reasoning;
+                    }
+                    
+                    return null;
+                },
+                
+                toggleSection(section) {
+                    this.expandedSections[section] = !this.expandedSections[section];
+                }
+            }
+        });
+    </script>
+</body>
+</html>
